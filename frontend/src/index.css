@@ -5,9 +5,75 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image:url(./assets/bg.jpg) ;
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.h1-header{
+  color: antiquewhite;
+  font-size: 3vh;
+  font-family: 'Times New Roman', Times, serif;
+}
+.header-izq{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar{
+  background-color: rgba(0, 0, 0, 0.589) ;
+  height: 10%;
+  
+}
+.user-img{
+  width:50px ;
+
+}
+
+.cuerpo{
+  
+  height: 80vh;
+  display: flex;
+  
+  justify-content: center;
+}
+.cartel-cuerpo{
+  margin-top: 3rem;
+ background-color: rgba(0, 0, 0, 0.658);
+ height: 30vh;
+ border-radius: 3rem;
+}
+.p-cartel{
+  font-size: 1.5rem;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  color: rgb(247, 160, 247);
+}
+.boton-cont{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.subtitulo{
+  font-size: 4rem;
+  text-align: center;
+  color: rgb(134, 51, 228);
+}
+.boton-cartel{
+  background-color: rgb(174, 0, 255);
+  margin-top: 1rem;
+  padding:1rem;
+  color: black;
+}
+.boton{
+  
+  border-radius: 3rem 0 ;
+  background-color: blueviolet;
+  padding: 1rem;
+  font-size: 2rem;
+  color: black;
+}
+.boton:hover{
+  color: rgb(255, 255, 255);
+  background-color: rgb(226, 64, 213);
 }
