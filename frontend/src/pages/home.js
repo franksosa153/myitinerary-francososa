@@ -1,16 +1,22 @@
 import React from 'react'
 import Headers from '../componentes/navbar'
 import Cartel from '../componentes/cartel'
+import Footer from '../componentes/footer'
+import Carousel from '../componentes/carousel'
 class Home extends React.Component{
  render(){
     return (
-        <div>
+        <>
+        <header>
             <Headers/>
-            <main className="cuerpo">
+            </header>
+            <main className="cuerpo">        
             <Cartel/>
+            <Carousel/>
+            </main> 
             
-            </main>   
-        </div>
+            <Footer/>  
+        </>
     )
 }
 }

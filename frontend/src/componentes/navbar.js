@@ -8,12 +8,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function Headers() {
     let logo=require('../assets/logo.png')
     return (
-      <Navbar collapseOnSelect expand="lg" className="navbar" variant="dark">     
+      <Navbar  collapseOnSelect expand="lg" className="navbar" variant="dark">     
       
       <Container>
       <div className="header-izq">
-         <div>
-            <img src={logo.default}/>
+         <div >
+            <img className="logo-r"src={logo.default}/>
          </div>
          <div>
          <h1 className="h1-header" >MyTinerary</h1>
@@ -25,13 +25,13 @@ function Headers() {
         </Nav>
         <Nav>
             
-          <Nav.Link href="#deets">Home</Nav.Link>
+          <Nav.Link to="home.js">Home</Nav.Link>
           <Nav.Link eventKey={2} href="#memes">
             Citys
           </Nav.Link>          
           <NavDropdown title="" id="collasible-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">Sign Up for Free!</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.2">Or Sign In!</NavDropdown.Item>
+            <NavDropdown.Item href="citis.js">Or Sign In!</NavDropdown.Item>
           </NavDropdown>
           <img className="user-img" src={require('../assets/user.png').default}/>
         </Nav>
