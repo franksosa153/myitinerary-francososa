@@ -26,7 +26,7 @@ function Headers() {
         </Nav>
         <Nav>
             
-          <Nav.Link><Link className="link-f" to="/citis">Home</Link></Nav.Link>
+          <Nav.Link><Link className="link-f" to="/">Home</Link></Nav.Link>
           <Nav.Link><Link className="link-f" eventKey={2} to="/citis">
             Cities
           </Link></Nav.Link>          

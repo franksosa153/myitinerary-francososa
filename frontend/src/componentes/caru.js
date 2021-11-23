@@ -83,7 +83,7 @@ const Slide = () => {
           <Row xs={1} md={2} className="g-4">
             {datauno.map((item) => (
               <Col className="tamaño-img">
-                <Card >
+                <Card className="" >
                   <Card.Img className="pepe"  variant="top" src={item.src} />
                   <Card.Body>
                     <Card.Title>{item.title}</Card.Title>
