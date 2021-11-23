@@ -1,6 +1,5 @@
 import React from 'react'
-import Navbar from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/Nav'
+import{Link} from 'react-router-dom'
 
 
 export default function Footer() {
@@ -8,8 +7,8 @@ export default function Footer() {
         <footer className="footer">
               
                <div className="barra-inf"> 
-             <a className="link-f">Home</a>
-             <a className="link-f">Citys</a>
+             <Link  to="/" className="link-f">Home</Link>
+             <Link to="/citis" className="link-f">Citys</Link>
              <a className="link-f">sing in</a>
              <a  className="link-f">sing up</a>
              </div>

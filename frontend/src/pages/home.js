@@ -3,6 +3,7 @@ import Headers from '../componentes/navbar'
 import Cartel from '../componentes/cartel'
 import Footer from '../componentes/footer'
 import Carousel from '../componentes/carousel'
+import Slide from '../componentes/caru'
 class Home extends React.Component{
  render(){
     return (

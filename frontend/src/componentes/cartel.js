@@ -1,4 +1,5 @@
 import React from 'react'
+import{Link} from 'react-router-dom'
 
 const Cartel = () => {
     return (
@@ -9,7 +10,7 @@ const Cartel = () => {
                         who know and love their cities!</p>
                     </div>
                     <div className="boton-cont">                      
-                       <a className="boton">Choose destination now!</a>
+                       <Link to="/citis" className="boton">Choose destination now!</Link>
                     </div>
                 </div>
     )

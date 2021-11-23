@@ -4,6 +4,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import{Link} from 'react-router-dom'
 
 function Headers() {
     let logo=require('../assets/logo.png')
@@ -25,10 +26,10 @@ function Headers() {
         </Nav>
         <Nav>
             
-          <Nav.Link to="home.js">Home</Nav.Link>
-          <Nav.Link eventKey={2} href="#memes">
-            Citys
-          </Nav.Link>          
+          <Nav.Link><Link className="link-f" to="/citis">Home</Link></Nav.Link>
+          <Nav.Link><Link className="link-f" eventKey={2} to="/citis">
+            Cities
+          </Link></Nav.Link>          
           <NavDropdown title="" id="collasible-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">Sign Up for Free!</NavDropdown.Item>
             <NavDropdown.Item href="citis.js">Or Sign In!</NavDropdown.Item>
