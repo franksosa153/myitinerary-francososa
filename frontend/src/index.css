@@ -131,7 +131,7 @@ background-color: rgb(255, 255, 255);
   align-items: center;
 }
 .navbar{
-  background-color: rgba(0, 0, 0, 0.589) ;
+  background-color: rgb(0, 0, 0) ;
   height: 10%;
   
 }
@@ -296,18 +296,34 @@ margin-top: 14vh;
 }
 .contenedor-carusel{
 padding:4vh 8vw 10vh 8vw;
-background-color: rgb(0, 0, 0);
+background-color: rgb(131, 130, 130);
 
 }
 .cuerpo-hero{
   height: 90vh;
 }
-
+.sinresultado{
+  height: 35vh;
+  width: 30vw;
+  background-color: aqua;
+  border-radius:2rem ;
+  text-align: center;
+  margin-left: 30vw;
+}
 
 
 @media(max-width:700px){
+  .tituloC{
+    font-size: 10vw;
+    text-align: center;
+    background-color: rgb(24, 243, 232);
+    border-radius: 10px;
+    
+    
+  }
+  
   .navbarh{
-    background-color: rgba(0, 0, 0, 0.589) ;
+    background-color: rgb(0, 0, 0) ;
     height: 10vh;
     
   }
@@ -353,7 +369,7 @@ background-color: rgb(0, 0, 0);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-image:url(./assets/bg.jpg) ;
-    background-size: 100vw 140vh;
+    background-size: 100vw 100vh;
     background-repeat: no-repeat;
   }
   
@@ -361,13 +377,9 @@ background-color: rgb(0, 0, 0);
     width:37vw ;
     height:18vh ;
   }
-  .carousel-img{
-    display: flex;
-    padding: 5vh 12vw 5vh;
-  }
   .citi-name{
     text-align: center;
-    background-color: rgba(137, 43, 226, 0.76);
+    background-color:blueviolet;
     width: 37.9%;
     margin: 0;
     margin-top: 14vh;
@@ -385,5 +397,9 @@ background-color: rgb(0, 0, 0);
     align-items: center;
     justify-content: space-evenly;
   }
-  
+  .contenedor-carusel{
+    background-color: rgb(156, 7, 156);
+
+    
+    }
 }

@@ -15,7 +15,8 @@ const filtrar=(terminoBusqueda)=>{
     var resultadosBusqueda=cities.filter((elemento)=>{
         if (elemento.name.toString().toLowerCase().startsWith(terminoBusqueda.trim().toLowerCase()))
         {
-            return elemento
+            let filtrado= elemento
+            return filtrado
         }
     });
     setCities(resultadosBusqueda)
@@ -54,8 +55,8 @@ useEffect(()=>{
                                 <Link to={`/${endpoint}/${citie._id}`} className="boton relative" >look at itineraries</Link>
                             </div>                        
                     </div>
-                ) 
-                 }):<h1></h1>
+                )
+                 }):<h1 className="sinresultado">no search results</h1> 
             }
             </div>           
         </div>

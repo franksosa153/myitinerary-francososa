@@ -76,7 +76,7 @@ export default class MultipleRows extends Component {
       speed: 500,
       rows: 2,
       slidesPerRow: 2,
-      autoplay: false,
+      autoplay: true,
       autoplaySpeed: 6000,
       dots: false,
       pauseOnHover: false,
@@ -84,12 +84,15 @@ export default class MultipleRows extends Component {
         {
           breakpoint: 800,
           settings: {
-            slidesToShow: 2,
+            slidesToShow: 1,
             slidesToScroll: 1,
             slidesPerRow: 1,
-            rows: 2,
+            rows: 4,
             dots: false,
             arrows: false,
+            infinite: true,
+            autoplay: true,
+      autoplaySpeed: 6000,
           }
         }
       ]
