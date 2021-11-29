@@ -1,0 +1,32 @@
+{
+  "name": "myitinerary-francososa",
+  "version": "1.0.0",
+  "description": "proyecto mern",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/franksosa153/myitinerary-francososa.git"
+  },
+  "keywords": [
+    "itinerari",
+    "mongo",
+    "react",
+    "mern"
+  ],
+  "author": "franco sosa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/franksosa153/myitinerary-francososa/issues"
+  },
+  "homepage": "https://github.com/franksosa153/myitinerary-francososa#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.13"
+  }
+}

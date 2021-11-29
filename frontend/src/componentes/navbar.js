@@ -27,12 +27,12 @@ function Headers() {
         <Nav>
             
           <Nav.Link><Link className="link-f" to="/">Home</Link></Nav.Link>
-          <Nav.Link><Link className="link-f" eventKey={2} to="/citis">
+          <Nav.Link><Link className="link-f" eventKey={2} to="/cities">
             Cities
           </Link></Nav.Link>          
           <NavDropdown title="" id="collasible-nav-dropdown">
-            <NavDropdown.Item href="#action/3.1">Sign Up for Free!</NavDropdown.Item>
-            <NavDropdown.Item href="citis.js">Or Sign In!</NavDropdown.Item>
+            <NavDropdown.Item href="#">Sign Up for Free!</NavDropdown.Item>
+            <NavDropdown.Item href="#">Or Sign In!</NavDropdown.Item>
           </NavDropdown>
           <img className="user-img" src={require('../assets/user.png').default}/>
         </Nav>

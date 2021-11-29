@@ -1,21 +1,17 @@
 import React from 'react'
 import Headers from '../componentes/navbar'
-import Cartel from '../componentes/cartel'
+import Hero from '../componentes/Hero'
 import Footer from '../componentes/footer'
-import Carousel from '../componentes/carousel'
-import Slide from '../componentes/caru'
+import PauseOnHover  from '../componentes/Carousel'
+
+
 class Home extends React.Component{
  render(){
     return (
         <>
-        <header>
-            <Headers/>
-            </header>
-            <main className="cuerpo">        
-            <Cartel/>
-            <Carousel/>
-            </main> 
-            
+            <Headers/>  
+            <Hero/> 
+            <PauseOnHover />        
             <Footer/>  
         </>
     )

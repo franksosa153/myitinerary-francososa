@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image:url(./assets/bg.jpg) ;
+  background-image:url(./assets/fondo.jpg) ;
   background-size: 100vw 110vh;
   background-repeat: no-repeat;
 }
@@ -13,6 +13,117 @@ body {
   color: antiquewhite;
   font-size: 3vh;
   font-family: 'Times New Roman', Times, serif;
+}
+.contenedor-poster{
+  height: 55vh;
+  
+display: flex;
+justify-content: center;
+
+  
+}
+.barrabusqueda{
+  height: 7vh;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: aqua;
+  border: solid black 6vh 0 0 0;
+  box-shadow: 1vw 2vh 5vh 2vh rgba(0, 0, 0, 0.973);
+  padding-bottom: 3vh;
+
+}
+.contenedor-citisl{
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.603);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+ 
+}
+.tamaño{
+  height: 20vh;
+}
+.img-lcitis{
+  width: 80vw;
+  height: 70vh;
+  border-radius: 10vh;
+background-color: rgb(10, 183, 196);
+padding-bottom: 5vh;
+padding-top: 10vh
+}
+.img-city{
+  width: 80vw;
+  height: 100vh;
+  border-radius: cover;
+background-color: rgb(255, 255, 255);
+
+}
+.f{
+  position: relative;
+  top: 7vw;
+  font-size: 6vw;
+}
+.b{
+  width: 80vw;
+  height: 70vh;
+}
+.img-lcitis:hover{
+  
+  animation-name: citisCatalogo;
+  animation-duration: 20s;
+  border-radius: 30vw 0;
+  padding-top: 10vh;
+
+}
+
+
+@keyframes citisCatalogo {
+  0%{border-radius: 5vw 10vh;
+    
+  }
+  
+  10%{border-radius: 30vw 0;
+    
+
+  }
+  
+  
+}
+.fondol{
+  background-image: url(./assets/fondo-l.jpg);
+  background-size: 100vW 100vh;
+  
+}
+
+.textbusc{
+  font-size: 3vw;
+}
+.buscador{
+  width: 40vw;
+}
+.espaciado.carusel{
+  height: 20vh;
+  background-color: black;
+  
+}
+.contenedor-texto-post{
+  background-color: rgba(0, 0, 0, 0.671);
+  margin-top: 13vh;
+  height: 32vh;
+  width: 55vw;
+  border-radius: 3vw ;
+}
+.texto-poster{
+  font-size: 10vw;
+  text-align: center;
+  
+  color:rgb(24, 243, 232);
+  
 }
 .header-izq{
   display: flex;
@@ -31,23 +142,45 @@ body {
 
 .cuerpo{
   
-  height: 85vh;
+  height: 70vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
 }
 .cartel-cuerpo{
-  margin-top: 3rem;
  background-color: rgba(0, 0, 0, 0.658);
- height: 30vh;
+ height: 40vh;
+ box-shadow: 1vw 2vh 5vh 2vh rgba(0, 0, 0, 0.973);
  border-radius: 3rem;
 }
 .p-cartel{
-  font-size: 200%;
+  font-size: 2vw;
   font-family: 'Times New Roman', Times, serif;
   text-align: center;
-  color: rgb(247, 160, 247);
+  color: rgb(255, 255, 255);
+  
+}
+.p-hero-uno{
+  font-family: cursive;
+  font-weight: bolder;
+  font-style: oblique;
+  font-size: 3vw;
+
+}
+.p-hero-dos{
+  font-family: cursive;
+  font-weight: bolder;
+  font-style: oblique;
+  font-size: 4vw;
+
+}
+.p-hero-tres{
+  font-family: cursive;
+  font-weight: bolder;
+  font-style: oblique;
+  font-size: 3vw;
+
 }
 .boton-cont{
   display: flex;
@@ -55,9 +188,9 @@ body {
   justify-content: center;
 }
 .subtitulo{
-  font-size: 4rem;
+  font-size: 8vw;
   text-align: center;
-  color: rgb(134, 51, 228);
+  color: rgb(24, 243, 232);
 }
 .boton-cartel{
   background-color: rgb(174, 0, 255);
@@ -67,19 +200,54 @@ body {
   margin-bottom:1rem;
 }
 .boton{
-  
-  border-radius: 3rem 0 ;
-  background-color: blueviolet;
-  padding: 1rem;
+  border-radius: 3rem 1vh  ;
+  background-color: rgb(4, 117, 112);
+  padding: 2rem;
   font-size: 2rem;
-  color: black;
+  font-weight: bolder;
+  border: solid;
+  text-decoration: lavender;
+  color:rgb(0, 0, 0);
+  box-shadow: 1vw 1vw 1vw 1vh rgba(0, 0, 0, 0.651);
+}
+.construction{
+  background-color: turquoise;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 34vh;
+  width: 30vw;
+  height: 20vh;
+  margin-left: 37vw;
+}
+.contenedorCity{
+  height: 25vh;
+}
+.ajuste{
+margin-left: 40vw;
+margin-top: 14vh;
+}
+.imagenEle{
+  height: 50vh;
+  width: 100vw;
+}
+.relative{
+  position: relative;
+  bottom: 20vh;
+}
+.titulociudad{
+  text-align: center;
+  background-color: rgba(3, 3, 3, 0.514);
+  color: white;
+  position: relative;
+ bottom: 8vh;
 }
 .boton:hover{
   color: rgb(255, 255, 255);
   background-color: rgb(226, 64, 213);
 }
 .barra-inf{
-  background-color: rgba(0, 0, 0, 0.658);
+  background-color: rgb(0, 0, 0);
   height: 4vh;
 }
 .link-f{
@@ -106,9 +274,33 @@ body {
     font-weight: bold;
 }
 
-.tvariable{
-  width:27vw ;
-  height:22vh ;
+.imagenes{
+  width: 50px;
+}
+.poster-texto{
+  text-align: center;
+  font-size: 8vw;
+  color: rgb(165, 101, 23);
+}
+.card{
+  height: 50vh;
+  
+}
+.tituloC{
+  font-size: 3vw;
+  text-align: center;
+  background-color: rgb(24, 243, 232);
+  border-radius: 10px;
+  
+  
+}
+.contenedor-carusel{
+padding:4vh 8vw 10vh 8vw;
+background-color: rgb(0, 0, 0);
+
+}
+.cuerpo-hero{
+  height: 90vh;
 }
 
 

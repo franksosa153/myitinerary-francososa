@@ -1,106 +1,120 @@
-import Carousel from 'react-bootstrap/Carousel'
-import React from 'react'
-export default function carousel(props) {
- 
+import React, { Component } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import Card from 'react-bootstrap/Card'
 
-    return (
-        <div>
-            <Carousel>
-  <Carousel.Item >
-      <div className="carousel-img">
-        
-      <div>
-     <a ><p className="citi-name"> London</p><img
-      className="d-block tvariable"
-      src={`../assets/citys/London.jpg`}
-      alt="First slide"
-    /></a>
-    <a ><p className="citi-name"> BuenosAires</p><img
-      className="d-block tvariable"
-      src="../assets/citys/BuenosAires.jpg"
-      alt="First slide"
-    /></a>
-    </div>
-    <div>
-    <div>  
-    <a ><p className="citi-name"> Isla Mujeres</p><img
-      className="d-block tvariable"
-      src="../assets/citys/IslaMujeres.jpg"
-      alt="First slide"
-    /></a> 
-    </div> 
-    <a ><p className="citi-name"> Madrid</p><img
-      className="d-block tvariable"
-      src="../assets/citys/Madrid.jpg"
-      alt="First slide"
-    /></a>
-    </div>
-    </div>
-  </Carousel.Item>
-  <Carousel.Item >
-      <div className="carousel-img">
-      <div>
-     <a ><p className="citi-name">Maldives</p><img
-      className="d-block tvariable"
-      src="../assets/citys/Maldives.jpg"
-      alt="First slide"
-    /></a>
-    <a ><p className="citi-name">Moscow</p><img
-      className="d-block tvariable"
-      src="../assets/citys/Moscow.jpg"
-      alt="First slide"
-    /></a>
-    </div>
-    <div>
-    <div>  
-    <a ><p className="citi-name"> New York</p><img
-      className="d-block tvariable"
-      src="../assets/citys/NewYork.jpg"
-      alt="First slide"
-    /></a> 
-    </div> 
-    <a ><p className="citi-name">Cordoba</p><img
-      className="d-block tvariable"
-      src="../assets/citys/Cordoba.jpg"
-      alt="First slide"
-    /></a>
-    </div>
-    </div>
-  </Carousel.Item>
-  <Carousel.Item >
-      <div className="carousel-img">
-      <div>
-     <a ><p className="citi-name"> Osaka</p><img
-      className="d-block tvariable"
-      src="../assets/citys/Osaka.jpg"
-      alt="First slide"
-    /></a>
-    <a ><p className="citi-name"> Paris</p><img
-      className="d-block tvariable"
-      src="../assets/citys/Paris.jpg"
-      alt="First slide"
-    /></a>
-    </div>
-    <div>
-    <div>  
-    <a ><p className="citi-name"> Seoul</p><img
-      className="d-block tvariable"
-      src="../assets/citys/Seoul.jpg"
-      alt="First slide"
-    /></a> 
-    </div> 
-    <a ><p className="citi-name">Tokyo </p><img
-      className="d-block tvariable"
-      src="../assets/citys/Tokyo.jpg"
-      alt="First slide"
-    /></a>
-    </div>
-    </div>
-  </Carousel.Item>
+
+export default class MultipleRows extends Component {
+  render() {
+    const Cities = 
+       [
+        {
+          title: "London",
+          src: "../assets/citys/London.jpg",
+        },
   
-</Carousel> 
-     
-        </div>
-    )
+        {
+          title: "Buenos Aires",
+          src: "../assets/citys/BuenosAires.jpg",
+        },
+  
+        {
+          title: "Indonesia",
+          src: "../assets/citys/IslaMujeres.jpg",
+        },
+  
+        {
+          title: "Miami",
+          src: "../assets/citys/Madrid.jpg",
+        },
+        {
+          title: "Bariloche",
+          src: "../assets/citys/Bariloche.jpg",
+        },
+  
+        {
+          title: "Cordoba",
+          src: "../assets/citys/Cordoba.jpg",
+        },
+  
+        {
+          title: "Moscow",
+          src: "../assets/citys/Moscow.jpg",
+        },
+  
+        {
+          title: "Paris",
+          src: "../assets/citys/Paris.jpg",
+        },
+        {
+          title: "Osaka",
+          src: "../assets/citys/Osaka.jpg",
+        },
+  
+        {
+          title: "Tokyo",
+          src: "../assets/citys/Tokyo.jpg",
+        },
+  
+        {
+          title: "Toronto",
+          src: "../assets/citys/Toronto.jpg",
+        },
+  
+        {
+          title: "Roma",
+          src: "../assets/citys/Roma.jpg",
+        },
+      ];
+    const settings = {
+      className: "center",
+      centerMode: false,
+      infinite: true,
+      centerPadding: "3px",
+      slidesToShow: 1,
+      speed: 500,
+      rows: 2,
+      slidesPerRow: 2,
+      autoplay: false,
+      autoplaySpeed: 6000,
+      dots: false,
+      pauseOnHover: false,
+      responsive:[
+        {
+          breakpoint: 800,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            slidesPerRow: 1,
+            rows: 2,
+            dots: false,
+            arrows: false,
+          }
+        }
+      ]
+    };
+    return (
+      <div className="contenedor-carusel">
+        <h2 className="tituloC">Popularity MyTinerary</h2>
+        <Slider {...settings}>
+          {Cities.map((img, index)=>{
+            return(
+              <div key={index} >
+                <Card className="cards">
+                  <Card.Img className="card" variant="top" src={img.src} />
+                  <Card.Body>
+                      <Card.Text>
+                        <h3>{img.title}</h3>
+                     </Card.Text>
+                  </Card.Body>
+                </Card>
+              </div>
+            )
+          }
+          )}
+        </Slider>
+      </div>
+    );
+  }
 }
-
