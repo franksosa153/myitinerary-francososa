@@ -4,32 +4,39 @@ import{Link} from 'react-router-dom'
 
 export default function Lista(props) {
     const [cities, setCities]=useState([])
-    const ciudades=props.ciudades
+    const[citiesCopia, setCitiesCopia]=useState([])
     const [busqueda, setBusqueda]=useState("")
-    const handleChange=e=>{
+    
+ const handleChange=e=>{
         setBusqueda(e.target.value)
     }
-    useEffect(()=>{filtrar("")},[ciudades])
-    useEffect(() => {filtrar(busqueda)},[busqueda])
+
+ useEffect(() => {filtrar(busqueda)},[busqueda])
 const filtrar=(terminoBusqueda)=>{
-    var resultadosBusqueda=cities.filter((elemento)=>{
-        if (elemento.name.toString().toLowerCase().startsWith(terminoBusqueda.trim().toLowerCase()))
+    var resultadosBusqueda=citiesCopia.filter((elemento)=>{
+
+      if(elemento.name.toString().toLowerCase().startsWith(terminoBusqueda.trim().toLowerCase())
+        )
         {
-            let filtrado= elemento
-            return filtrado
+           
+            return elemento 
         }
+        
     });
     setCities(resultadosBusqueda)
 }
 
-
+//fecheo
 useEffect(()=>{
     fecheo()
 },[])
  async function fecheo(){
  try{  let respuesta=await fetch("http://localhost:4000/api/cities")
     let data=await respuesta.json()
-    setCities(data.respuesta)}catch(err){console.log(err);}
+    setCities(data.respuesta)
+    setCitiesCopia(data.respuesta)
+}catch(err){console.log(err);}
+
     
 }
 
