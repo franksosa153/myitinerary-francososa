@@ -1,20 +1,16 @@
-import Headers from '../componentes/navbar'
-import React,{setEffect, useState} from "react"
-import Poster from '../componentes/Poster';
-import Lista from '../componentes/lista';
-import Footer from "../componentes/footer"
+import Headers from "../componentes/navbar";
+import Poster from "../componentes/Poster";
+import Lista from "../componentes/lista";
+import Footer from "../componentes/footer";
 const Cities = () => {
-    
-    
+  return (
+    <div className="contenedor-home">
+      <Headers />
+      <Poster />
+      <Lista />
+      <Footer />
+    </div>
+  );
+};
 
-    return (
-        <>
-        <Headers/> 
-        <Poster/>
-        <Lista/>
-        <Footer/>   
-        </>
-    )
-}
-
-export default Cities
+export default Cities;

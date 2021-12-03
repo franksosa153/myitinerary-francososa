@@ -103,12 +103,12 @@ export default class MultipleRows extends Component {
         <Slider {...settings}>
           {Cities.map((img, index)=>{
             return(
-              <div key={index} >
+              <div key={index} className="contenedo-cards" >
                 <Card className="cards">
-                  <Card.Img className="card" variant="top" src={img.src} />
-                  <Card.Body>
-                      <Card.Text>
-                        <h3>{img.title}</h3>
+                  <Card.Img className="card img-cards" variant="top" src={img.src} />
+                  <Card.Body className="cards-bodys">
+                      <Card.Text >
+                        <h3 className="cards-texto">{img.title}</h3>
                      </Card.Text>
                   </Card.Body>
                 </Card>

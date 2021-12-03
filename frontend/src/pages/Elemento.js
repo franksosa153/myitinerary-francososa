@@ -16,7 +16,7 @@ class Elemento extends React.Component {
     id = this.props.params.id
 
     componentDidMount() {
-        axios.get('http://localhost:4000/api/'+this.endpoint+'/'+this.id)
+        axios.get('http://localhost:4000/api/city/'+this.id)
         .then(response => this.setState({elemento:response.data.respuesta}))
     }
 

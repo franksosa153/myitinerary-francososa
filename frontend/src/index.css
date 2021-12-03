@@ -9,18 +9,91 @@ body {
   background-size: 100vw 110vh;
   background-repeat: no-repeat;
 }
-.h1-header{
+.user-drop{
+  margin-right: 2vw;
+}
+/* estilos del carucel*/
+.tituloC{
+  font-size: 3vw;
+  text-align: center;
+  background-color: rgb(24, 243, 232);
+  border-radius: 10px;
+}
+.cards-bodys{
+  background-color: rgb(0, 0, 0) !important;
+}
+.contenedor-carusel{
+  padding:4vh 8vw 10vh 8vw;
+  background-color: rgb(39, 39, 39);
+  }
+
+.card{
+  height: 65vh;
+  background-size: contain;
+  background-color: black !important;
+}
+.cards{
+  background-color: rgb(46, 46, 46) !important;
+}
+.cards-texto{
+  color: white !important;
+}
+
+/*header-navbar*/
+.user-img{
+  width:50px ;
+}
+.navbar{
+  background-color: rgb(0, 0, 0) ;
+  height: 10%; 
+}
+.navbar-izquierda{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.link-navbar{
+  color: rgb(255, 255, 255) !important;
+  padding: 0 1rem;
+  font-size: 2vw;
+  text-decoration: none;
+}
+.link-navbar:hover{
+  color: rgb(24, 243, 232) !important;
+  
+}
+
+.dropdown-item{
+  color: white !important;
+  width: 3vw !important;
+
+}
+.espacio{
+  width: 5vw;
+}
+.dropdown-item:hover{
+  background-color: rgb(63, 62, 62) !important;
+  color: rgb(24, 243, 232) !important;
+}
+.dropdown-menu{
+  background-color: rgb(37, 37, 37) !important;
+  color: rgb(24, 243, 232) !important;
+}
+
+.link-contenedor:hover{
+  background-color: rgb(59, 58, 58);
+  border-radius: 2rem;
+
+}
+.mytinerary-navbar{
   color: antiquewhite;
   font-size: 3vh;
   font-family: 'Times New Roman', Times, serif;
 }
 .contenedor-poster{
-  height: 55vh;
-  
+  height: 55vh;  
 display: flex;
 justify-content: center;
-
-  
 }
 .barrabusqueda{
   height: 7vh;
@@ -43,7 +116,6 @@ justify-content: center;
   flex-direction: column;
   align-items: center;
   justify-content: center;
- 
 }
 .tamaño{
   height: 20vh;
@@ -88,7 +160,6 @@ background-color: rgb(255, 255, 255);
   }
   
   10%{border-radius: 30vw 0;
-    
 
   }
   
@@ -125,24 +196,13 @@ background-color: rgb(255, 255, 255);
   color:rgb(24, 243, 232);
   
 }
-.header-izq{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.navbar{
-  background-color: rgb(0, 0, 0) ;
-  height: 10%;
-  
-}
-.user-img{
-  width:50px ;
 
-}
+
+
 
 .cuerpo{
   
-  height: 70vh;
+  height: 75vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -165,21 +225,21 @@ background-color: rgb(255, 255, 255);
   font-family: cursive;
   font-weight: bolder;
   font-style: oblique;
-  font-size: 3vw;
+  font-size: 2vw;
 
 }
 .p-hero-dos{
   font-family: cursive;
   font-weight: bolder;
   font-style: oblique;
-  font-size: 4vw;
+  font-size: 3vw;
 
 }
 .p-hero-tres{
   font-family: cursive;
   font-weight: bolder;
   font-style: oblique;
-  font-size: 3vw;
+  font-size: 2vw;
 
 }
 .boton-cont{
@@ -250,16 +310,6 @@ margin-top: 14vh;
   background-color: rgb(0, 0, 0);
   height: 4vh;
 }
-.link-f{
-  color: rgb(110, 110, 110);
-  padding: 0 1rem;
-  text-decoration: none;
-}
-.carousel-img{
-  display: flex;
-  
-  padding: 5vh 20vw 4vh;
-}
 
 .citi-name{
   text-align: center;
@@ -277,28 +327,14 @@ margin-top: 14vh;
 .imagenes{
   width: 50px;
 }
+
+
 .poster-texto{
   text-align: center;
   font-size: 8vw;
   color: rgb(165, 101, 23);
 }
-.card{
-  height: 50vh;
-  
-}
-.tituloC{
-  font-size: 3vw;
-  text-align: center;
-  background-color: rgb(24, 243, 232);
-  border-radius: 10px;
-  
-  
-}
-.contenedor-carusel{
-padding:4vh 8vw 10vh 8vw;
-background-color: rgb(131, 130, 130);
 
-}
 .cuerpo-hero{
   height: 90vh;
 }
@@ -321,6 +357,16 @@ background-color: rgb(131, 130, 130);
     
     
   }
+  .contenedor-citisl {
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    background-color: rgb(116, 0, 131);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
   
   .navbarh{
     background-color: rgb(0, 0, 0) ;
@@ -353,11 +399,9 @@ background-color: rgb(131, 130, 130);
     color: black;
     
   }
-  .logo-r{
-    width:17vw;
-  }
+  
   .barra-inf{
-    background-color: rgba(0, 0, 0, 0.658);
+    background-color: rgb(0, 0, 0);
     height: 5vh;
     
   }
@@ -402,4 +446,15 @@ background-color: rgb(131, 130, 130);
 
     
     }
+}
+@media(max-width:768px){
+  .card{
+    height: 30vh;
+    background-size: contain;
+    background-color: black !important;
+  } 
+  .cards{
+    background-color: rgb(46, 46, 46) !important;
+    height: 40vh;
+  }
 }

@@ -8,16 +8,16 @@ import{Link} from 'react-router-dom'
 
 function Headers() {
     let logo=require('../assets/logo.png')
+    let logoUser= <img className="user-img" src={require('../assets/user.png').default}/>
     return (
       <Navbar  collapseOnSelect expand="lg" className="navbar" variant="dark">     
-      
       <Container>
-      <div className="header-izq">
+      <div className="navbar-izquierda">
          <div >
-            <img className="logo-r"src={logo.default}/>
+            <img src={logo.default}/>
          </div>
          <div>
-         <h1 className="h1-header" >MyTinerary</h1>
+         <h1 className="mytinerary-navbar" >MyTinerary</h1>
          </div>
       </div>   
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -26,15 +26,15 @@ function Headers() {
         </Nav>
         <Nav>
             
-          <Nav.Link><Link className="link-f" to="/">Home</Link></Nav.Link>
-          <Nav.Link><Link className="link-f" eventKey={2} to="/cities">
+          <Nav.Link className="link-contenedor"><Link className="link-navbar" to="/">Home</Link></Nav.Link>
+          <Nav.Link className="link-contenedor"><Link className="link-navbar" eventKey={2} to="/cities">
             Cities
           </Link></Nav.Link>          
-          <NavDropdown title="" id="collasible-nav-dropdown">
-            <NavDropdown.Item href="#">Sign Up for Free!</NavDropdown.Item>
-            <NavDropdown.Item href="#">Or Sign In!</NavDropdown.Item>
+          <NavDropdown className="user-drop link-contenedor" title={logoUser} id="collasible-nav-dropdown">
+            <NavDropdown.Item className="link-contenedor-drop" href="#">Sign Up</NavDropdown.Item>
+            <NavDropdown.Item className="link-contenedor-drop" href="#">Sign In</NavDropdown.Item>
           </NavDropdown>
-          <img className="user-img" src={require('../assets/user.png').default}/>
+         <div className="espacio"></div>
         </Nav>
       </Navbar.Collapse>
       </Container>
