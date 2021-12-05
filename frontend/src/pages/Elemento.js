@@ -3,6 +3,10 @@ import axios from 'axios'
 import Header from "../componentes/navbar"
 import Construction from '../componentes/construction'
 import Volver from "../componentes/volver"
+import {connect} from "react-redux"
+import citiesActions from '../redux/actions/citiesActions'
+import itinerariosActions from '../redux/actions/itinerariosActions'
+
 class Elemento extends React.Component {
 
     constructor(props) {
@@ -12,12 +16,12 @@ class Elemento extends React.Component {
     }
 
     state = {elemento:{name: '-'}}
-    endpoint = this.props.params.endpoint
     id = this.props.params.id
 
     componentDidMount() {
-        axios.get('http://localhost:4000/api/city/'+this.id)
-        .then(response => this.setState({elemento:response.data.respuesta}))
+        this.props.fechCity(this.id)
+        this.props.fechItinerarios(this.id)
+
     }
 
     render() { 
@@ -25,11 +29,20 @@ class Elemento extends React.Component {
         <div className="element">
             <Header/>
             <div className="contenedorCity">
-            <img className="imagenEle" src={this.state.elemento.src} />
-           <h1 className="titulociudad" >{this.state.elemento.name}</h1>
+            <img className="imagenEle" src={this.props.arrayCity.src} />
+           <h1 className="titulociudad" >{this.props.arrayCity.name}</h1>
             </div>
             <div>
-            <Construction/>
+                {this.props.arrayItinerarios.map((p)=>{
+                    return(
+                        <div>
+                            <h1>{p.name}</h1>
+                            <p className="price">Price: {"💵".repeat(p.price)}</p>
+                        </div>
+
+                    );
+                })}
+              <Construction/>
             </div>
             <Volver/>
 
@@ -37,5 +50,20 @@ class Elemento extends React.Component {
         </div>)
     }
 }
+const mapStateToProps = state => {
+    return {
+      arrayCity: state.cityReducer.city,
+      arrayItinerarios: state.itinerariosReducer.itinerarios
+
+    }
+  }
+  
+  const mapDispatchToProps = {
+    fechCity: citiesActions.traerCity,
+    fechItinerarios: itinerariosActions.traerItinerarios
+   
+    
+}
+    
  
-export default Elemento;
+export default connect(mapStateToProps, mapDispatchToProps)(Elemento)

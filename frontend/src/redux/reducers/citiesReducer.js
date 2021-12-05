@@ -20,11 +20,10 @@ const citiesReducer=(state=initialState,action)=>{
                 ...state,
                 cities: filtrado
             }
-        case 'FETCH_UNA_CITY':
+        case 'fechcity':
             return {
                 ...state,
-                city: action.payload.respuesta,
-                success: action.payload.success            
+                city: action.payload.respuesta,          
             }    
         default:
             return state

@@ -14,11 +14,10 @@ const citiesActions = {
             dispatch({type:'filtro', payload:{cities, value}})
         }
     },
-    fetchUnaCity: (id, props) => {
+    traerCity: (id)=>{
         return (dispatch, getState) => {
-            axios.get(`'http://localhost:4000/api/city/${id}`)
-            .then(respuesta => dispatch({type: 'FETCH_UNA_CITY', payload: respuesta.data}))
-            .catch(error => props.push('/serverdown')) 
+            axios.get('http://localhost:4000/api/city/'+id)
+            .then(respuesta => dispatch({type: 'fechcity', payload: respuesta.data})) 
         }
     },
 }

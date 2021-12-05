@@ -34,19 +34,14 @@ import citiesActions from "../redux/actions/citiesActions";
                 <div className="img-lcity b">
                   <h3 className="f">{citie.name}</h3>
                   <img className="img-lcitis tamaño" src={citie.src} />
-                  <Link
-                    to={`/city/${citie._id}`}
-                    className="boton relative"
-                  >
-                    look at itineraries
-                  </Link>
+                  <Link to={`/city/${citie._id}`}className="boton relative">look at itineraries</Link>
                 </div>
               </div>
             );
            
           })
         ) : (
-          <h1 className="sinresultado">no search results</h1>
+          <h1 className="sin resultado">no search results</h1>
         )}
       </div>
     </div>
