@@ -82,7 +82,7 @@ class Elemento extends React.Component {
             })
           ) : (
             <h1 className="sinItinerarios">
-            under construction
+            there are no itineraries for this city
           </h1>
           )}
           <Volver/>
