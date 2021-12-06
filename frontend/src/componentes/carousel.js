@@ -97,7 +97,7 @@ export default class MultipleRows extends Component {
         }
       ]
     };
-    return (
+    return (  
       <div className="contenedor-carusel">
         <h2 className="tituloC">Popularity MyTinerary</h2>
         <Slider {...settings}>

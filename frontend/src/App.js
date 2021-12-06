@@ -6,6 +6,7 @@ import ElementoSinProps from './pages/Elemento'
 import {withRouter} from './utils/withRouter'
 
 
+
 const Elemento = withRouter(ElementoSinProps)
 
 const App=()=>{  
