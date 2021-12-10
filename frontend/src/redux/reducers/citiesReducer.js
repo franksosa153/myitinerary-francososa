@@ -2,7 +2,6 @@ const initialState = {
     copiaCities: [],
     cities: [],
     city: [],
-    success: true
 }
 
 const citiesReducer=(state=initialState,action)=>{

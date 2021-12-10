@@ -4,6 +4,8 @@ import Home from './pages/home'
 import Cities from './pages/cities'
 import ElementoSinProps from './pages/Elemento'
 import {withRouter} from './utils/withRouter'
+import Registro from './pages/Registro'
+import InicioSesion from './pages/IniciarSesion'
 
 
 
@@ -20,6 +22,8 @@ const App=()=>{
       <Route path="/" element={<Home/>}/>
       <Route path="/cities" element={<Cities/>}/>
       <Route path="/city/:id" element={<Elemento />} />
+      <Route path="/registro" element={<Registro />} />
+      <Route path="/inicioSesion" element={<InicioSesion />} />
       </Route>
       </Routes>
      </BrowserRouter>

@@ -1,7 +1,5 @@
 import React from "react";
-import axios from "axios";
 import Header from "../componentes/navbar";
-import Construction from "../componentes/construction";
 import Volver from "../componentes/volver";
 import { connect } from "react-redux";
 import citiesActions from "../redux/actions/citiesActions";
@@ -17,13 +15,20 @@ class Elemento extends React.Component {
 
   state = { elemento: { name: "-", src: "-" } };
   id = this.props.params.id;
-
+  toTop= () => {window.scroll({
+    top:0, 
+    left:0,
+    behavior:"smooth"
+})}
   componentDidMount() {
     this.props.fechCity(this.id);
     this.props.fechItinerarios(this.id);
+    this.toTop()
   }
+  
 
   render() {
+     
     return (
       <div>
         <Header />
@@ -112,3 +117,4 @@ const mapDispatchToProps = {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Elemento);
+ 

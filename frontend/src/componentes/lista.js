@@ -8,7 +8,12 @@ import Card from 'react-bootstrap/Card'
 function Lista(props) {
   //filtro
   useEffect(() => {
-    props.arrrayCities();
+    props.arrayCities();
+    window.scroll({
+      top: 10,
+      left: 100,
+      behavior: 'smooth'
+    });
   }, []);
   console.log(props);
 
@@ -63,7 +68,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
-  arrrayCities: citiesActions.fetchCities,
+  arrayCities: citiesActions.fetchCities,
   filtrar: citiesActions.filtrar,
 };
 

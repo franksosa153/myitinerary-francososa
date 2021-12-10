@@ -31,8 +31,8 @@ function Headers() {
             Cities
           </Link></Nav.Link>          
           <NavDropdown className="user-drop link-contenedor" title={logoUser} id="collasible-nav-dropdown">
-            <NavDropdown.Item className="link-contenedor-drop" href="#">Sign Up</NavDropdown.Item>
-            <NavDropdown.Item className="link-contenedor-drop" href="#">Sign In</NavDropdown.Item>
+            <NavDropdown.Item className="link-contenedor-drop" href="#"> <Link  to="/registro">Sign Up</Link></NavDropdown.Item>
+            <NavDropdown.Item className="link-contenedor-drop"><Link  to="/inicioSesion">Sign In</Link></NavDropdown.Item>
           </NavDropdown>
          <div className="espacio"></div>
         </Nav>
