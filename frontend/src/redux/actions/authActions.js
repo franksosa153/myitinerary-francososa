@@ -8,7 +8,7 @@ const authActions = {
                 // eslint-disable-next-line
                 const user = await axios.post('http://localhost:4000/api/auth/signUp',{email,password,name,lastName,country,urlImage})
                 if(user.data.success && !user.data.error){
-                    
+                    localStorage.setItem('token',user.data.response.token)
                     dispatch({type:'user', payload:{email}})
                 }else{
                     // alert(user.data.error)
@@ -23,16 +23,38 @@ const authActions = {
     iniciarSesion: (email,password) => {
         return async(dispatch, getState)=>{
             try {
-                console.log(email,password)
                 const user = await axios.post('http://localhost:4000/api/auth/signIn',{email, password})
                 if(user.data.success && !user.data.error){
-                    dispatch({type:'usuario', payload:{user:user.data.response}})
+                    localStorage.setItem('token',user.data.response.token)
+                    dispatch({type:'usuario', payload:user.data.response})
                 }else{
-                    alert(user.data.error)
+                    console.log(user.data)
+                    // alert(user.data.error)
                 }
             }catch(error){
                 console.error(error)
             }
+        }
+    },
+    loginForzadoPorLocalS:(userLS) => {
+        
+        return async (dispatch , getState) =>{
+            try{
+                const respuesta = await axios.get ('https://localhost:4000/api/user/loginLS',{
+                    headers:{
+                        'Authorization': 'Bearer ' + userLS.token
+            
+                    }
+                })
+                dispatch({type:'user', payload:{
+                    ...respuesta.data.respuesta,
+                    token: userLS.token
+                }})
+            }
+               
+            catch(err) {                
+               
+                }
         }
     }
 }

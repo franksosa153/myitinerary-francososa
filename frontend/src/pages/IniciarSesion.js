@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import authActions from '../redux/actions/authActions'
 import {useRef} from 'react'
 import { NavLink } from "react-router-dom"
+import Headers from "../componentes/navbar";
 
 const IniciarSesion = (props)=>{
     const inputEmail = useRef()
@@ -18,10 +19,11 @@ const IniciarSesion = (props)=>{
        inputEmail.current.value = ''
         inputContraseña.current.value = ''
     }
-    console.log(props)
+    console.log(props.usuario)
 
     return (
         <div className="container-formulario">
+            
             <h2>Join to our World of Adventures!</h2>
             <h4>Already have an account?<NavLink exact to="/login"> Log in!</NavLink></h4>
             <main className="main-formulario">
