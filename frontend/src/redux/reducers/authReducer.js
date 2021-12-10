@@ -1,15 +1,15 @@
 
 const initialState = {
-    usuario:{email:''},
+    user:{email:''},
 }
 
 const authReducer = (state = initialState, action)=>{
 
     switch(action.type){
-       case 'usuario':
+       case 'user':
             return {
                 ...state,
-                usuario: action.payload
+                user: action.payload
             }
         default:
             return state

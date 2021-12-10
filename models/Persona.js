@@ -9,6 +9,6 @@ const personaSchema = new mongoose.Schema({
         urlImage:String, 
 })
 
-const Persona = mongoose.model('persona', personaSchema)
+const User= mongoose.model('persona', personaSchema)
 
-module.exports = Persona;
+module.exports = User;

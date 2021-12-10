@@ -2,14 +2,14 @@ const axios = require('axios')
 
 const authActions = {
 
-    registrarUsuario: (email,password, name,lastName,country,urlImage) =>{
+    register: (email,password, name,lastName,country,urlImage) =>{
         return async(dispatch, getState)=>{
             try {
                 // eslint-disable-next-line
                 const user = await axios.post('http://localhost:4000/api/auth/signUp',{email,password,name,lastName,country,urlImage})
                 if(user.data.success && !user.data.error){
                     
-                    dispatch({type:'usuario', payload:{email}})
+                    dispatch({type:'user', payload:{email}})
                 }else{
                     // alert(user.data.error)
                     console.error(user.data.response)

@@ -202,6 +202,7 @@ const countries = [
   ];
 
 const Registro = (props)=>{
+    console.log(props)
     const inputEmail = useRef()
     const inputContraseña = useRef()
     const inputName = useRef()
@@ -209,7 +210,7 @@ const Registro = (props)=>{
     const inputCountry=useRef()
     const inputUrlImage=useRef()
     const handleSubmit = async (country,name,lastName,email, password,urlImage )=>{
-        const errores = await props.registrarUsuario(country,name,lastName,email, password,urlImage )
+        const errores = await props.registerUser(country,name,lastName,email, password,urlImage )
         console.log(errores)
        
         
@@ -268,16 +269,18 @@ const Registro = (props)=>{
             </main>
         </div>
     )
+    
 }
+
 
     
 const mapStateToProps = (state) =>{
     return {
-        usuario: state.authReducer.usuario
+        usuario: state.authReducer.user
     }
  }
  const mapDispatchToProps = {
-    registrarUsuario: authActions.registrarUsuario
+    registerUser: authActions.register
  }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Registro)

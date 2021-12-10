@@ -1,4 +1,4 @@
-const Persona = require('../models/Persona')
+const User = require('../models/Persona')
 const bcryptjs = require('bcryptjs')
 
 const authControllers = {
@@ -8,18 +8,17 @@ const authControllers = {
     newUser: async(req, res) => {
         
         let {name,lastName,country, email, password,urlImage} = req.body      
-        // tengo que hashear (hash) la contraseña y guardarla en la base de datos
         console.log(req.body)
         try {
 
-            const usuarioExiste = await Persona.findOne({email})
-            if (usuarioExiste){
-                res.json({success: false, error:"El nombre de mail ya esta en uso", response:null})
+            const userExists = await User.findOne({email})
+            if (userExists){
+                res.json({success: false, error:"The email name is already in use", response:null})
             }else{
 
                 password= bcryptjs.hashSync(password, 10)
 
-                const nuevoUsuario = new Persona({
+                const newUser = new User({
                     name,
                     lastName,
                     country,
@@ -28,8 +27,8 @@ const authControllers = {
                     urlImage
                 })
             
-                await nuevoUsuario.save()
-                res.json({success: true, response: nuevoUsuario, error: null})
+                await newUser.save()
+                res.json({success: true, response: newUser, error: null})
             }
         
         }catch(error){
@@ -43,7 +42,7 @@ const authControllers = {
         console.log(req.body)
         try {
 
-            const usuarioExiste = await Persona.findOne({email})
+            const usuarioExiste = await User.findOne({email})
             if (!usuarioExiste){
                 res.json({success: true, error:"El usuario y/o contraseña incorrectos"})
             }else{
