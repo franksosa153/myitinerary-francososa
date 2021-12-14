@@ -42,30 +42,36 @@ const IniciarSesion = (props)=>{
 
     return (
         <> 
-        <Headers/> 
-        <div className="container-formulario">
+        
+        <div className="container-formulario-in">
             
-            <h2>Join to our World of Adventures!</h2>
-            <h4>Already have an account?<NavLink exact to="/login"> Log in!</NavLink></h4>
-            <main className="main-formulario">
+            <h2 className='subtituloR'>Join to our World of Adventures!</h2>
+            <h4 className='subtituloR'>You do not have an account?<NavLink exact to="/registro"> sign up!</NavLink></h4>
+            <main className="main-formulario-in">
             <form onSubmit={handleSubmitInputs}>             
-                    <label className='labelFormulario' style={{display: 'flex',flexDirection: 'column'}}>Mail
-                        <input className='inputsForm' type="email" ref={inputEmail} name="name"/>
+                    <label className='labelFormulario subtituloR' style={{display: 'flex',flexDirection: 'column'}}>Mail
+                        <input className='inputsForm ' type="email" ref={inputEmail} name="name"/>
                     </label>
-                    <label className='labelFormulario' style={{display: 'flex',flexDirection: 'column'}}>Password
+                    <label className='labelFormulario subtituloR' style={{display: 'flex',flexDirection: 'column'}}>Password
                         <input className='inputsForm' type="text" ref={inputContraseña} name="name"/>
                     </label>
-                    <input type="submit" value="Enviar"/>
-                </form>
-                
-            </main>
-            <GoogleLogin
+                    <div className='ajustarEnvio'>
+                    <input className='inputsForm labelFormulario enviar ' type="submit" value="Enviar"/>
+                    </div>
+                     <h1 className='or'>Or </h1>
+                      <GoogleLogin
+            className='estilosGOOgle'
     clientId="477764676540-drivpqs59urt1ltdeddemqs1l9jhmu0t.apps.googleusercontent.com"
     buttonText="Login"
     onSuccess={responseGoogle}
     onFailure={responseGoogle}
     cookiePolicy={'single_host_origin'}
   />,
+                </form>
+                
+                
+            </main>
+         
         </div>
 
         </>

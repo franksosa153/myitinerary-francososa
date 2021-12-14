@@ -6,7 +6,7 @@ const authActions = {
     register: (User) =>{
         return async(dispatch, getState)=>{
             try {
-                // eslint-disable-next-line
+                
                 const user = await axios.post('http://localhost:4000/api/auth/signUp',{...User})
                 if(user.data.success && !user.data.error){
                     localStorage.setItem('token',user.data.response.token)

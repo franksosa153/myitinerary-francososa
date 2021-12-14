@@ -22,6 +22,7 @@ body {
 .subtituloR{
   color: white;
 }
+
 .contenedorRgistro{
   width: 98.8vw;
   height: 140vh;
@@ -776,6 +777,17 @@ display: flex;
   padding-right: 0 !important;
 }
 /* formulario*/
+.container-formulario-in{
+  margin-top: 5vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 70vh;
+  width: 45vw;
+  background-color: rgba(0, 0, 0, 0.616);
+  border-radius: 4vh;
+}
 .container-formulario{
   margin-top: 5vh;
   display: flex;
@@ -793,7 +805,15 @@ display: flex;
 .enviar:hover {
 background-color: turquoise;
 }
-
+.main-formulario-in{
+  background-color: rgba(0, 0, 0, 0.705);
+    width: 40vw;
+    height: 110vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 .main-formulario{
     background-color: rgba(0, 0, 0, 0.705);
     width: 40vw;

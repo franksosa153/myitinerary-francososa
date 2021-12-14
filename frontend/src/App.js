@@ -5,7 +5,7 @@ import Cities from './pages/cities'
 import ElementoSinProps from './pages/Elemento'
 import {withRouter} from './utils/withRouter'
 import SignUp from './pages/SignUp'
-import InicioSesion from './pages/IniciarSesion'
+import SignIn from './pages/SingIn'
 import {connect} from "react-redux"
 import authActions from './redux/actions/authActions';
 import { useEffect } from "react"
@@ -33,7 +33,7 @@ const App=(props)=>{
       <Route path="/cities" element={<Cities/>}/>
       <Route path="/city/:id" element={<Elemento />} />
       {props.token ? <Route path="*" element={<Home/>}/>:<><Route path="/registro" element={<SignUp/>} />
-      <Route path="/inicioSesion" element={<InicioSesion />} /></> }  
+      <Route path="/inicioSesion" element={<SignIn />} /></> }  
       </Route>
       </Routes>
       <ToastContainer

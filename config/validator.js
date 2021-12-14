@@ -16,10 +16,8 @@ const validator = (req, res, next) => {
             "string.pattern.base": "Your Last Name must contain only letters",
         }),
         country: joi.string().trim().min(2).max(15).required().pattern(new RegExp('[a-zA-Z]$')).messages({
-            "string.empty": "Your Last Name is a required field",
-            "string.min": "Your Last Name must have at least 3 characters",
-            "string.max": "Your Last Name could have max. 15 characters",
-            "string.pattern.base": "Your Last Name must contain only letters",
+            "string.empty": "Your coutry is a required field",
+    
         }),
         email: joi.string().required().trim().email({tlds:{allow:false}}).messages({
             "any.required": "Your Email is a required field",
