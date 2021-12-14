@@ -3,25 +3,46 @@ import {connect} from 'react-redux';
 import authActions from '../redux/actions/authActions'
 import {useRef} from 'react'
 import { NavLink } from "react-router-dom"
-import Headers from "../componentes/navbar";
+import Headers from '../componentes/navbar'
+import { GoogleLogin } from 'react-google-login';
+import Swal from 'sweetalert2'
+
 
 const IniciarSesion = (props)=>{
+    const responseGoogle = (res) => {
+        console.log(res);
+        let googleUser = {
+          email: res.profileObj.email,
+          password: res.profileObj.googleId,
+          google: true,
+        };
+        props
+          .iniciarSesion(googleUser)
+      };
     const inputEmail = useRef()
     const inputContraseña = useRef()
-
-    const handleSubmit = async (email, password )=>{
-       props.iniciarSesion(email,password)
+    const handleSubmit = async (user) => {
+        const errores = await props.iniciarSesion(user);
+        console.log(errores);
         
-    }
-    const handleSubmitInputs = (e)=>{
-        e.preventDefault()
-        handleSubmit(inputEmail.current.value, inputContraseña.current.value)
-       inputEmail.current.value = ''
-        inputContraseña.current.value = ''
-    }
-    console.log(props.usuario)
+      };
+      const handleSubmitInputs = (e) => {
+        e.preventDefault();
+        const user = {
+          email: inputEmail.current.value,
+          password: inputContraseña.current.value,
+
+        }
+        handleSubmit(user);
+    inputEmail.current.value = "";
+    inputContraseña.current.value = "";
+
+
+  };
 
     return (
+        <> 
+        <Headers/> 
         <div className="container-formulario">
             
             <h2>Join to our World of Adventures!</h2>
@@ -38,14 +59,24 @@ const IniciarSesion = (props)=>{
                 </form>
                 
             </main>
+            <GoogleLogin
+    clientId="477764676540-drivpqs59urt1ltdeddemqs1l9jhmu0t.apps.googleusercontent.com"
+    buttonText="Login"
+    onSuccess={responseGoogle}
+    onFailure={responseGoogle}
+    cookiePolicy={'single_host_origin'}
+  />,
         </div>
+
+        </>
     )
 }
 
     
 const mapStateToProps = (state) =>{
     return {
-        usuario: state.authReducer.usuario
+        usuario: state.authReducer.usuario,
+        errores: state.authReducer.errores
     }
  }
  const mapDispatchToProps = {

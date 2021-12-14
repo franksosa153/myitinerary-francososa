@@ -5,9 +5,33 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image:url(./assets/fondo.jpg) ;
-  background-size: 100vw 110vh;
+  background-image:url(./assets/Sydney.jpg);
+  background-size: 100vw 120vh;
   background-repeat: no-repeat;
+}
+.userImg {
+  width: 70px;
+  height: 70px;
+  border-radius: 3rem;
+}
+.tituloRegistro{
+  font-size: 10vh;
+  margin-top: 5vh;
+  color: rgb(3, 3, 3);
+}
+.subtituloR{
+  color: white;
+}
+.contenedorRgistro{
+  width: 98.8vw;
+  height: 140vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(./assets/registerimagen.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  flex-direction: column;
 }
 .volver{
   border-radius: 3rem 1vh  ;
@@ -96,21 +120,43 @@ body {
 }
 /* estilos del carucel*/
 .tituloC{
-  font-size: 3vw;
+  display: flex;
+  justify-content: center;
+  font-size: 2.5vw;
   text-align: center;
   background-color: rgb(24, 243, 232);
   border-radius: 10px;
+  padding: 1rem;
 }
 .cards-bodys{
+  align-items: center;
   background-color: rgb(0, 0, 0) !important;
 }
 .contenedor-carusel{
-  padding:4vh 8vw 10vh 8vw;
-  background-color: rgb(26, 26, 26);
-  }
 
-.card{
-  height: 65vh;
+   padding:1vh 4vw 1vh 5vw;
+  background-color: rgb(26, 26, 26);
+  align-items: center; 
+  }
+div.contenedo-cards{
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-height: 600px;
+  text-align: center;
+ padding: 1rem;
+
+}
+.card .img-cards{
+ 
+  width: 100%;
+  height: 8rem;
+  max-width: 900px;
+  max-height: 300px;
+  
+  height: 60vh;
   background-size: contain;
   background-color: black !important;
 }
@@ -121,24 +167,45 @@ body {
   color: white !important;
 }
 /*footer*/
+.footer{
+  height: 5rem;
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+
+  
+}
 .link-f{
   color: white;
   text-decoration: none;
   font-size: 2vw;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
 }
 .link-f:hover{
   color: rgb(24, 243, 232) !important; 
+
 }
 .barra-inf-links{
   display: flex;
-  justify-content: space-around;
-  width: 30%;
+  justify-content:space-between;
+  width: 100%;
+  
 }
 .barra-inf{
   background-color: rgb(0, 0, 0);
   height: 7vh;
   display: flex;
   justify-content: space-evenly;
+  margin-left: 7rem;
+}
+.barra-inf img{
+  margin-left: 0.5rem;
 }
 .sinCitis{
   height: 30vh;
@@ -253,7 +320,7 @@ justify-content: center;
 }
 
 
-
+/* herooooooo...................... */
 
 .cuerpo{
   
@@ -262,18 +329,21 @@ justify-content: center;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  padding: 1rem;
 }
 .cartel-cuerpo{
- background-color: rgba(0, 0, 0, 0.658);
- height: 40vh;
- box-shadow: 1vw 2vh 5vh 2vh rgba(0, 0, 0, 0.973);
+ background-color: rgba(72, 165, 145, 0.418);
+ height: 60vh;
+ box-shadow: 1vw 3vh 8vh 2vh rgba(232, 241, 221, 0.573);
  border-radius: 3rem;
+ padding: 1.5rem;
 }
 .p-cartel{
   font-size: 2vw;
   font-family: 'Times New Roman', Times, serif;
   text-align: center;
-  color: rgb(255, 255, 255);
+  color: rgb(249, 255, 254);
+ 
   
 }
 .p-hero-uno{
@@ -337,8 +407,10 @@ justify-content: center;
   margin-bottom: 10vh;
 }
 .foto-carne{
-  height: 30vh;
-  width: 20vw;
+  width: auto;
+  height: auto;
+  max-width: 200px;
+  max-height: 200px;
 }
 .contenedorItinerario{
   background-color:rgb(26, 26, 26);
@@ -472,7 +544,7 @@ display: flex;
 
 .poster-texto{
   text-align: center;
-  font-size: 8vw;
+  font-size: 3vw;
   color: rgb(165, 101, 23);
 }
 
@@ -705,17 +777,55 @@ display: flex;
 }
 /* formulario*/
 .container-formulario{
+  margin-top: 5vh;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  height: 85vh;
-  width: 42vw;
-  background-color: wheat;
+  height: 110vh;
+  width: 50vw;
+  background-color: rgba(0, 0, 0, 0.616);
+  border-radius: 4vh;
 }
+.ajusteInput{
+  margin-top: 4vh;
+}
+.enviar:hover {
+background-color: turquoise;
+}
+
 .main-formulario{
-    background-color: aqua;
-    width: 70vh;
+    background-color: rgba(0, 0, 0, 0.705);
+    width: 40vw;
+    height: 98vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.ajustarEnvio{
+  padding-top: 2vh;
+  display: flex;
+  align-items: center;
+  justify-content:center ;
+}
+.estilosGOOgle{
+  color: black !important;
+  font-size: 2vw !important;
+  border-radius: 4vh 0 4vh !important;
+  text-align: center !important;
+  display: flex !important;
+  justify-content: center;
+  width: 30vw;
+}
+.estilosGOOgle:hover{
+  background-color: turquoise !important;
+}
+.or{
+  color: white;
+  text-align: center;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
 }
 .labelFormulario{
  font-size: 2vw ;

@@ -3,6 +3,10 @@ import {connect} from 'react-redux';
 import authActions from '../redux/actions/authActions'
 import {useRef} from 'react'
 import { NavLink } from "react-router-dom"
+import { GoogleLogin } from 'react-google-login';
+import Swal from 'sweetalert2'
+import { toast } from "react-toastify";
+import{Link} from 'react-router-dom'
 const countries = [
     "Afganistán",
     "Albania",
@@ -202,51 +206,88 @@ const countries = [
   ];
 
 const Registro = (props)=>{
-    console.log(props)
+
+    const responseGoogle = (res) => {
+        console.log(res);
+        let googleUser = {
+          name: res.profileObj.givenName,
+          lastName: res.profileObj.familyName,
+          email: res.profileObj.email,
+          password: res.profileObj.googleId,
+          urlImage: res.profileObj.imageUrl,
+          country: "Argentina",
+          google: true,
+        };
+        props
+          .registerUser(googleUser)
+          .then((response) => response.data.success)
+          .catch((error) => console.log(error));
+      };
     const inputEmail = useRef()
     const inputContraseña = useRef()
     const inputName = useRef()
     const inputLastName = useRef()
     const inputCountry=useRef()
     const inputUrlImage=useRef()
-    const handleSubmit = async (country,name,lastName,email, password,urlImage )=>{
-        const errores = await props.registerUser(country,name,lastName,email, password,urlImage )
-        console.log(errores)
-       
-        
-    }
-    const handleSubmitInputs = (e)=>{
-        e.preventDefault()
-        handleSubmit(inputEmail.current.value, inputContraseña.current.value,inputName.current.value,  inputLastName.current.value,inputCountry.current.value, inputUrlImage.current.value)
-       inputName.current.value='' 
-       inputLastName.current.value=''
-       inputCountry.current.value=''
-       inputEmail.current.value = ''
-        inputContraseña.current.value = ''
-        inputUrlImage.current.value=''
-        
-        
-        
-    }
+    const handleSubmit = async (
+        user
+      ) => {
+        const errores = await props.registerUser(
+          user
+        );
+        console.log(errores);
+        if (errores) {
+          errores.errores.map((e) =>
+            toast.error(e.message, {
+              position: "top-center",
+              autoClose: 4000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
+            })
+          );
+        }
+      };
+      const handleSubmitInputs = (e) => {
+        e.preventDefault();
+        const user = {
+          name:inputName.current.value,
+          lastName:inputLastName.current.value,
+          email: inputEmail.current.value,
+          password: inputContraseña.current.value,
+          urlImage: inputUrlImage.current.value,
+          country:inputCountry.current.value, 
+        }
+        handleSubmit(user);
+    inputName.current.value = "";
+    inputLastName.current.value = "";
+    inputEmail.current.value = "";
+    inputContraseña.current.value = "";
+    inputUrlImage.current.value = "";
+    inputCountry.current.value = "";
+  };
 
     return (
         <div className="container-formulario">
             
-            <h2>Join to our World of Adventures!</h2>
-            <h4>Already have an account?<NavLink exact to="/login"> Log in!</NavLink></h4>
+            <h2 className='subtituloR'>Join to our World of Adventures!</h2>
+            <h4 className='subtituloR'>Already have an account?<NavLink  as={Link} to="/inicioSesion"> Log in!</NavLink></h4>
             <main className="main-formulario">
             <form onSubmit={handleSubmitInputs}>
-                    <label className='labelFormulario' style={{display: 'flex',flexDirection: 'column'}}>Name
+                    <label className='labelFormulario subtituloR' style={{display: 'flex',flexDirection: 'column'}}>Name
                         <input className='inputsForm' type="text" ref={inputName} />
                     </label>
-                    <label className='labelFormulario' style={{display: 'flex',flexDirection: 'column'}}>LastName
+                    <label className='labelFormulario subtituloR' style={{display: 'flex',flexDirection: 'column'}}>LastName
                         <input className='inputsForm' type="text" ref={inputLastName} placeholder='put your last name' />
                     </label>
-                    <label className='labelFormulario' style={{display: 'flex',flexDirection: 'column'}}>Url Image
+                    <label className='labelFormulario subtituloR' style={{display: 'flex',flexDirection: 'column'}}>Url Image
                         <input className='inputsForm' type="text"  ref={inputUrlImage}/>
                     </label>
-                    <label className='labelFormulario' style={{display: 'flex',flexDirection: 'column'}}>Country
-                    <select ref={inputCountry} name="select">
+                    <label className='labelFormulario subtituloR' style={{display: 'flex',flexDirection: 'column'}}>Country
+                    <select ref={inputCountry} name="select subtituloR">
                         <option  disabled value="" selected>Choose your Country</option>
                         {countries.map((country)=>{
                             return(
@@ -256,14 +297,24 @@ const Registro = (props)=>{
                     </select>
                     </label>
                     
-                    <label className='labelFormulario' style={{display: 'flex',flexDirection: 'column'}}>Mail
+                    <label className='labelFormulario subtituloR' style={{display: 'flex',flexDirection: 'column'}}>Mail
                         <input className='inputsForm' type="email" ref={inputEmail} name="name"/>
                     </label>
-                    <label className='labelFormulario' style={{display: 'flex',flexDirection: 'column'}}>Password
+                    <label className='labelFormulario subtituloR' style={{display: 'flex',flexDirection: 'column'}}>Password
                         <input className='inputsForm' type="text" ref={inputContraseña} name="name"/>
                     </label>
-                    
-                    <input type="submit" value="Enviar"/>
+                    <div className='ajustarEnvio'>
+                    <input className='inputsForm labelFormulario enviar ' type="submit" value="Enviar"/>
+                    </div>
+                    <h1 className='or'>Or </h1>
+                    <GoogleLogin 
+                    className='estilosGOOgle'
+    clientId="477764676540-drivpqs59urt1ltdeddemqs1l9jhmu0t.apps.googleusercontent.com"
+    buttonText="Sign Up"
+    onSuccess={responseGoogle}
+    onFailure={responseGoogle}
+    cookiePolicy={'single_host_origin'}
+  />,
                 </form>
                 
             </main>

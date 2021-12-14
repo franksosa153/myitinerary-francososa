@@ -25,21 +25,21 @@ const validator = (req, res, next) => {
             "any.required": "Your Email is a required field",
             "string.email": "Your Email must be a valid mail",
         }),
-        password: joi.string().min(6).trim().required().pattern(/(?=.*\d)(?=.*[A-z])/).messages({
+        password:joi.string().min(4).trim().required().messages({
             "string.empty": "Your Password  is a required field",
-            "string.min": "Your Password  must have at least 6 characters",
-            "string.pattern.base": "Your Password must have at least a letter and a number",
+            "string.min": "Your Password  must have at least 4 characters",
         }),
         urlImage:joi.string().required().trim().messages({
             "string.empty": "Your must insert an image URL link ",
         }),
+        google:joi.boolean(),
     })
 
     const validation = schema.validate(req.body, {abortEarly:false})
 
     if (validation.error) {
         console.log(validation.error)
-        return res.json({success: false, response:validation.error.details})
+        return res.json({success: false, errores:validation.error.details})
     }
     
     next()

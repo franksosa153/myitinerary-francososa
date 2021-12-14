@@ -1,26 +1,22 @@
-const passport = require('passport')
-const jwtStrategy = require('passport-jwt').Strategy
-const extractJwt = require('passport-jwt').ExtractJwt
+const passport = require("passport")
+const jwtStrategy = require("passport-jwt").Strategy
+const extractJwt = require("passport-jwt").ExtractJwt
+const User = require("../models/Persona")
 
-const User = require('../models/Persona')
-//se crea una nueva instancia
-module.exports = passport.use(new jwtStrategy({
-    //es de donde va a sacar el token desde el portador
-    jwtFromRequest: extractJwt.fromAuthHeaderAsBearerToken(),
-    //clave secreta escondida en el .env
-    secretOrKey: process.env.SECRET_KEY
-},(jwt_payload,done)=>{
-    User.findOne({_id:jwt_payload._doc._id})
-    .then(user => {
-        if (user) {
-            return done(null, user)
-        }else{
-            return done(null, false)
-        }
-    })
-    .catch(err => {
-        console.log(err)
-        return done(err,false)
-    })
-
+module.exports = passport.use(
+    new jwtStrategy(
+        {
+            jwtFromRequest: extractJwt.fromAuthHeaderAsBearerToken(), 
+            secretOrKey: process.env.SECRET_KEY,
+        },
+        (payload, done) => {
+        User.findOne({_id: payload._doc._id})
+            .then(response => {
+                if (!response){
+                    return done(null, false)
+                } else {
+                    return done(null, response)
+                }
+            })
+            .catch(error => done(error, false)) 
 }))

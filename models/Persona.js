@@ -6,7 +6,8 @@ const personaSchema = new mongoose.Schema({
         country:{type:String, requiere:true},
         email:{type:String, required:true},
         password:{type:String, required:true},
-        urlImage:String, 
+        urlImage:String,
+        google: {type: Boolean, default: false} 
 })
 
 const User= mongoose.model('persona', personaSchema)
