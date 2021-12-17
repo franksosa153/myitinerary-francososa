@@ -84,6 +84,7 @@ body {
 .citiesCard{
   height: 85%;
   border-radius: 3rem !important;
+  background-color: black !important;
 }
 .cardImg:hover{
   width: 90vw;
@@ -150,6 +151,18 @@ div.contenedo-cards{
  padding: 1rem;
 
 }
+.headerItinerario{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 27vh;
+}
+.nombreGuia{
+  color: antiquewhite;
+  font-size: 3vw;
+  text-decoration: underline rgb(11, 237, 245);
+}
 .card .img-cards{
  
   width: 100%;
@@ -160,6 +173,25 @@ div.contenedo-cards{
   height: 60vh;
   background-size: contain;
   background-color: black !important;
+}
+.iconoItinerarios{
+  height: 15vh;
+  width: 11vw;
+  border-radius: 10vh;
+  border: solid 5px  rgb(11, 237, 245);
+}
+.card{
+  background-color: black !important;
+}
+.itinerarioContenedor{
+  height: 100vh;
+  width: 60vw;
+  background-image: url(../src/assets/itienrarios.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.accordion-body{
+  color: black;
 }
 .cards{
   background-color: rgb(46, 46, 46) !important;
@@ -268,6 +300,10 @@ div.contenedo-cards{
 display: flex;
 justify-content: center;
 }
+.hastags{
+  color: aqua;
+  padding-left: 2vh;
+}
 .barrabusqueda{
   height: 7vh;
   
@@ -276,7 +312,6 @@ justify-content: center;
   align-items: center;
   color: aqua;
   border: solid black 6vh 0 0 0;
-  box-shadow: 1vw 2vh 5vh 2vh rgba(0, 0, 0, 0.973);
   padding-bottom: 3vh;
 
 }
@@ -479,10 +514,13 @@ display: flex;
   bottom: 20vh;
 }
 .accordion-button{
-  background-color:rgb(31, 30, 30) !important;
+  background-image: url(../src/assets/itienrarios.jpg);
   border: rgb(31, 30, 30) solid 3px !important;
   color: aqua !important;
   text-align: center !important;
+  justify-content: center !important;
+  align-items: center !important;
+  border: none !important;
 }
 .contenedortodo{
   height: 100vh;
@@ -508,6 +546,8 @@ display: flex;
   border: solid black 5px;
   
 }
+
+
 .volverAciTy{
   padding-top: 10vh;
 }
@@ -859,4 +899,40 @@ background-color: turquoise;
 }
 .opticionsinvalor{
   color: rgba(0, 0, 0, 0.26);
+}
+.loading{
+  height: 50vh;
+  width: 100%;
+  background-color: rgb(26, 26, 26);
+}
+.headerLoading{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cargando{
+  font-size: 5vw;
+  color: rgb(99, 99, 99);
+}
+
+.rellenoLoading{
+  height: 7vh;
+}
+.divPadre{
+  height: 30vh;
+  position: relative;
+}
+.divHijo{
+  margin: 0;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+.spinnerReactstrap{
+  width: 100px !important;
+  height: 100px !important;
+  border: 10px solid currentColor !important;
+  border-right-color: transparent !important;
 }

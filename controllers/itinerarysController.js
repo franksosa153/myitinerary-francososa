@@ -7,7 +7,7 @@ const itinerarysControllers = {
         const itineraries = await Itinerary.find().populate('cityID')
         res.json({success: true, respuesta: itineraries})
     } catch(error) {
-        console.log(error)
+        
         res.json({success: false, respuesta: "Oops!error"})
     }
 },
@@ -16,25 +16,25 @@ obtenerItinerariosCiudades: async (req,res) => {
   try {
       const selectedCityItineraries = await Itinerary.find({cityID: cityId})
       if (selectedCityItineraries.length != 0) {
-          res.json({success: true, respuesta: selectedCityItineraries})
+          res.json({success: true, respuesta:selectedCityItineraries})
       } else{
       res.json({success: false, respuesta: []})
   }
   }  catch(error) {
-    console.log(error)
+    
     res.json({success: false, respuesta: "Oops!error"})
   }    
 },
   cargarUnItinerario: async(req,res)=>{
     const itinerary =  req.body
-    console.log(req.body)
+    
     let respuesta
     try{
 
         respuesta = await new Itinerary(itinerary).save()
 
     }catch(error) {
-      console.log(error)
+      
       res.json({success: false, respuesta: "Oops!error"})
   }
     res.json(respuesta)
@@ -46,7 +46,7 @@ obtenerItinerariosCiudades: async (req,res) => {
     try {
         itinerarys = await Itinerary.findOne({ _id: id }).populate("id")
       }catch(error) {
-        console.log(error)
+        
         res.json({success: false, respuesta: "Oops!error"})
     }
     res.json({ respuesta: itinerarys, success: true });
@@ -58,7 +58,7 @@ obtenerItinerariosCiudades: async (req,res) => {
       await Itinerary.findOneAndDelete({ _id: id });
       const itinerarys = await Itinerary.find();
     } catch (error) {
-      console.log(error);
+     
     }
     res.json({ respuesta: itinerarys});
   },
@@ -71,10 +71,25 @@ obtenerItinerariosCiudades: async (req,res) => {
         new: true,
       });
     } catch (error) {
-      console.log(error);
+      
     }
     res.json({ success: actualizado ? true : false });
   },
+  likeDislikeItinerary:(req,res) =>{
+    Itinerary.findOne({_id: req.params.id})
+    .then((itinerary) =>{
+        if(itinerary.likes.includes(req.user._id)){
+           Itinerary.findOneAndUpdate({_id:req.params.id}, {$pull:{likes:req.user.id}},{new:true})
+           .then((newItinerary)=> res.json({success:true, response:newItinerary.likes}))
+           .catch((error) => console.log(error))
+        }else{
+            Itinerary.findOneAndUpdate({_id: req.params.id}, {$push:{likes:req.user.id}},{new:true})
+            .then((newItinerary) => res.json({success:true, response:newItinerary.likes}))
+            .catch((error) => console.log(error))
+        }
+    })
+    .catch((error) => res.json({success:false, response:error}))
+},
 
 };
 

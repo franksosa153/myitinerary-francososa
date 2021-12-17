@@ -1,16 +1,16 @@
+import React from "react";
+import  {Spinner}  from "reactstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-
-const Loader = () =>{ 
-    return(
-        <div className="main preloader">
-            <div className="sk-folding-cube">
-                <div className="sk-cube1 sk-cube"></div>
-                <div className="sk-cube2 sk-cube"></div>
-                <div className="sk-cube4 sk-cube"></div>
-                <div className="sk-cube3 sk-cube"></div>
-            </div>
-        </div>       
-    )
+function Loading() {
+  return (
+    <div className="divPadre">
+            
+      <div className="divHijo">
+        <Spinner color="primary" className="spinnerReactstrap"/>
+      </div>
+    </div>
+  );
 }
 
-export default Loader
+export default Loading;

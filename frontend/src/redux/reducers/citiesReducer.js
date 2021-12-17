@@ -1,6 +1,6 @@
 const initialState = {
     copiaCities: [],
-    cities: [],
+    cities:null,
     city: [],
 }
 

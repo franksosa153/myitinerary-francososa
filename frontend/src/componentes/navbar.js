@@ -10,7 +10,7 @@ import authActions from '../redux/actions/authActions'
 
 function Headers(props) {
   var logoUser = props.token
-  ? <img className="userImg" src= {(`${props.urlImage} `)}/>
+  ? <img className="userImg" src= {props.urlImage}/>
   : <img className="userImg" src={require('../assets/user.png').default}/>
     let logo=require('../assets/logo.png')
     return (

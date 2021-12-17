@@ -1,12 +1,15 @@
 import axios from "axios"
-
+let llego=''
 const citiesActions = {
 
     fetchCities: () => {
 
         return (dispatch, getState) => {
               axios.get('http://localhost:4000/api/cities')
-            .then(respuesta => dispatch({type: 'FETCHCITIES', payload: respuesta.data})) 
+            .then(respuesta => dispatch({type: 'FETCHCITIES', payload: respuesta.data}),
+            llego=true
+            ) 
+            
         }     
     },
     filtrar: (cities, value)=>{

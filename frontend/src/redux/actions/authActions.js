@@ -10,15 +10,17 @@ const authActions = {
                 const user = await axios.post('http://localhost:4000/api/auth/signUp',{...User})
                 if(user.data.success && !user.data.error){
                     localStorage.setItem('token',user.data.response.token)
-                    dispatch({type:'user', payload:user.data.response})
+                    dispatch({type:'usuario', payload:user.data.response})
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
-                        title:'te registraste bien capo',
+                        title:'You successfully registered!',
                         showConfirmButton: true,
                         timer: 1500
                       })
                 }else{
+                    
+                    
                     return { errores: user.data.errores };
                 }
             }catch(error){
@@ -34,7 +36,7 @@ const authActions = {
                     localStorage.setItem('token',user.data.response.token)
                     dispatch({type:'usuario', payload:user.data.response})
                 }else{
-                    console.log(user.data)
+                    
                     const error =user.data.error
                     Swal.fire({
                         position: 'top-end',

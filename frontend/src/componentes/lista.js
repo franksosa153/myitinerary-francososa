@@ -2,19 +2,42 @@ import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import citiesActions from "../redux/actions/citiesActions";
-import Loader from "./Loader";
+import Loading from "./Loader";
 import Card from 'react-bootstrap/Card'
+import { useState } from "react";
 
 function Lista(props) {
   //filtro
   useEffect(() => {
     props.arrayCities();
     window.scroll({
-      top: 10,
+      top: 0,
       left: 100,
       behavior: 'smooth'
     });
+    
   }, []);
+
+  if (props.todasLasCities== null) {
+    return <>
+    <div className="rellenoLoading"></div>
+    <div className="loading">
+    <div className="headerLoading">
+     <input
+          type="text"
+          className="input"
+          autoComplete="off"
+          name="filtro"
+          onChange={(evento) => filtrar(auxCities, evento.target.value)}
+          placeholder="search for the desired city"
+        />
+        <h3 className="cargando">Loading...</h3>
+        </div>
+      <Loading/>
+ 
+  </div>
+  </>
+}
   console.log(props);
 
   const auxCities = props.auxiliar;
@@ -24,6 +47,7 @@ function Lista(props) {
 
   return (
     <div>
+      
       <div className="barrabusqueda">
       </div>
       <div className="fondol">
