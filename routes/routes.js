@@ -7,7 +7,7 @@ const validator = require('../config/validator')
 const authControllers = require('../controllers/userControllers');
 const { Route } = require("express");
 const {obtenerTodasLasCiudades, cargarUnaCiudad, obtenerUnaCiudad} = citiesControllers
-const {obtenerTodasLosItinerarios,  cargarUnItinerario, obtenerUnItinerario,borrarUnItinerario,modificarUnItinerario,likeDislikeItinerary,obtenerItinerariosCiudades} = itinerarysControllers
+const {obtenerTodasLosItinerarios,  cargarUnItinerario, obtenerUnItinerario,borrarUnItinerario,modificarUnItinerario,likeDislikeItinerary,obtenerItinerariosCiudades,controlComment} = itinerarysControllers
 const { newUser, accederACuenta,tokenVerification} = authControllers
 Router.route('/cities')
 .get(obtenerTodasLasCiudades)
@@ -36,7 +36,10 @@ Router.route('/tokenVerification')
 .get(passport.authenticate("jwt" ,{session:false}),tokenVerification)
 
 Router.route("/itinerary/like/:id")
-.put(passport.authenticate("jwt", {session: false}),likeDislikeItinerary)
+.put(passport.authenticate("jwt", {session: false}),likeDislikeItinerary),
+
+Router.route("/comments/:id")
+.put(passport.authenticate("jwt", {session: false}),controlComment)
 
 
 

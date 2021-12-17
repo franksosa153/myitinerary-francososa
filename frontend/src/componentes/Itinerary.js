@@ -2,6 +2,8 @@ import React,{useState} from "react";
 import {connect} from "react-redux"
 import Accordion from "react-bootstrap/Accordion";
 import itinerariosActions from "../redux/actions/itinerariosActions";
+import Comments from "./Comments";
+
 const Swal = require('sweetalert2')
 
 
@@ -44,7 +46,7 @@ const Itinerary = (props) => {
                       </div>
                       <div className="datos3">
                       <img src={heart} onClick={likeItinerary }/>
-                        <p>{itinerariesLikes.length}</p>
+                        <p className="likes">{itinerariesLikes.length}</p>
                         <div className="hastag">
                           {props.Itineraries.hashtags.map((e)=>{
                             return(
@@ -62,7 +64,7 @@ const Itinerary = (props) => {
                           <Accordion.Header className="view">View More</Accordion.Header>
                           <Accordion.Body>
                             
-                              <h1 >under construction</h1>
+                          <Comments itineraryId={props.Itineraries._id} comments={props.Itineraries.comments}/>
                             
                           </Accordion.Body>
                         </Accordion.Item>

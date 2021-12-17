@@ -304,6 +304,30 @@ justify-content: center;
   color: aqua;
   padding-left: 2vh;
 }
+/* comentarios*/
+div.profilePicContainter, div.profilePic {
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 100%;
+ 
+}
+div.textArea {
+  display: flex;
+}
+
+div.textArea p {
+  background-color: lightslategray;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-top-right-radius: 25px;
+  padding: .5rem;
+  font-size: 2vmin;
+  margin-left: 2rem;
+  margin-right: .5rem;
+  margin-top: .5rem;
+}
 .barrabusqueda{
   height: 7vh;
   
@@ -314,6 +338,10 @@ justify-content: center;
   border: solid black 6vh 0 0 0;
   padding-bottom: 3vh;
 
+}
+.likes{
+  font-size: 4vh;
+  color: white;
 }
 .contenedor-citisl{
   width: 100%;
