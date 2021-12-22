@@ -64,7 +64,7 @@ const Itinerary = (props) => {
                           <Accordion.Header className="view">View More</Accordion.Header>
                           <Accordion.Body>
                             
-                          <Comments itineraryId={props.Itineraries._id} comments={props.Itineraries.comments}/>
+                          <Comments key={props.Itineraries._id} itineraryId={props.Itineraries._id} comments={props.Itineraries.comments}/>
                             
                           </Accordion.Body>
                         </Accordion.Item>

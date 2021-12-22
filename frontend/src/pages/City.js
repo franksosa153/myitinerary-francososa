@@ -17,17 +17,16 @@ import Itinerary from '../componentes/Itinerary'
 const City = (props) => {
     let { id } = useParams();
     
-console.log(props)
+
     useEffect(() => {
         window.scrollTo(0,0)
         props.fechCity(id);
         props.fechItinerarios(id);
 
     }, [])
-    console.log(props)
+    
    
 
-    console.log()
     
 
 

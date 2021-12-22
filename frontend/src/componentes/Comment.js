@@ -32,7 +32,6 @@ const Comment = (props) => {
     const img=props.newComment.userId._id ?props.newComment.userId.urlImage:props.dataComment.urlImage
     const user = props.userId==props._id ||props.newComment.userId._id === props._id
     
-    console.log(props.dataComment.urlImage)
     const comment = <div className="textArea">
                         <div>
                             {!modifyComment 

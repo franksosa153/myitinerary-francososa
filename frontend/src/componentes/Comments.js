@@ -10,7 +10,7 @@ const Comments = (props) => {
     const [allComments, setAllComments] = useState (props.comments)
     const [update, setUpdate] = useState (false)
     const inputHandler = useRef()
-
+    
     const addNewComment = (e) => {
         let textValue = inputHandler.current.value
         if(textValue==""){
@@ -22,15 +22,16 @@ const Comments = (props) => {
                 timer: 1500
               })
         }else{
-        props.addComment(props.itineraryId, textValue, props.token, props.urlImage)
+        props.addComment(props.itineraryId, textValue, props.token, props.urlImage,)
         .then((res)=> {
+            
             setAllComments(res.response)   
-            inputHandler.current.value = ""   
+            inputHandler.current.value = "" 
+         
         })
         .catch(error=>console.log(error))
         }
     }
-    console.log(props.comments)
 
     const deleteComment = (itineraryId, commentId, token) =>  {
         props.deleteComment(itineraryId, commentId, token)
@@ -43,10 +44,15 @@ const Comments = (props) => {
         })
         .catch(error =>console.log(error))
     }
-console.log(props.comments)
+    const domparativa=props.itineraryId
+    const id=allComments.map((r)=>r.itineraryId==domparativa)
+
+
+
     const editComment = (commentId, comment, token) => {
         props.editComment(commentId, comment, token)
         .then((res)=> {
+            //if(props.itineraryId===){
             if(res.success) {
             allComments.forEach(updatedComment=>{
                 if(updatedComment._id === commentId){
@@ -55,7 +61,8 @@ console.log(props.comments)
             })
             setAllComments(allComments)
             setUpdate(!update)
-            }
+            //}
+        }
         })
         .catch(error =>console.log(error))
     }
