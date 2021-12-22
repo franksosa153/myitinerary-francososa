@@ -3,6 +3,7 @@ import {  useState, useRef } from "react"
 import { connect } from 'react-redux'
 import Comment from "./Comment"
 import itinerariosActions from "../redux/actions/itinerariosActions"
+const Swal = require('sweetalert2')
 
 const Comments = (props) => {
 
@@ -12,14 +13,24 @@ const Comments = (props) => {
 
     const addNewComment = (e) => {
         let textValue = inputHandler.current.value
-        props.addComment(props.itineraryId, textValue, props.token)
+        if(textValue==""){
+            Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title:"no podes dejar vacio un comentario",
+                showConfirmButton: true,
+                timer: 1500
+              })
+        }else{
+        props.addComment(props.itineraryId, textValue, props.token, props.urlImage)
         .then((res)=> {
             setAllComments(res.response)   
             inputHandler.current.value = ""   
         })
         .catch(error=>console.log(error))
-        
+        }
     }
+    console.log(props.comments)
 
     const deleteComment = (itineraryId, commentId, token) =>  {
         props.deleteComment(itineraryId, commentId, token)
@@ -56,7 +67,7 @@ console.log(props.comments)
                 <div className="comments">
                 
                     {
-                        allComments.map((comment)=><Comment key={comment._id} userId={comment.userId} newComment={comment} delete={deleteComment} itineraryId={props.itineraryId} edit={editComment} updateComment={update}/>
+                        allComments.map((comment)=><Comment key={comment._id} userId={comment.userId} dataComment={comment} newComment={comment} delete={deleteComment} itineraryId={props.itineraryId} edit={editComment} updateComment={update}/>
                         )
                     }
                 </div>
@@ -77,7 +88,7 @@ console.log(props.comments)
 const mapStateToProps = (state) => {
     return {
         token:state.authReducer.token,
-        _id:state.authReducer._id
+        urlImage:state.authReducer.urlImage
     }   
 }
 

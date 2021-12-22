@@ -23,10 +23,10 @@ const itinerariosActions = {
             }
         }
     },
-    addComment: (itineraryId, comment, token) => {
+    addComment: (itineraryId, comment, token,urlImage) => {
         return async () => {
             try {
-                let response = await axios.put(`http://localhost:4000/api/comments/${itineraryId}`, {comment, type: "addComment"},
+                let response = await axios.put(`http://localhost:4000/api/comments/${itineraryId}`, {comment,urlImage, type: "addComment"},
                 {headers: {
                     Authorization: "Bearer "+token
                     }

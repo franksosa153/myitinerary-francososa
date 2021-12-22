@@ -94,8 +94,9 @@ controlComment: async (req, res) => {
   switch(req.body.type){
       case "addComment":
           try {
-              const newComment = await Itinerary.findOneAndUpdate({_id: req.params.id}, {$push: {comments: {comment: req.body.comment, userId: req.user._id}}}, {new: true}).populate("comments.userId")
+              const newComment = await Itinerary.findOneAndUpdate({_id: req.params.id}, {$push: {comments: {comment: req.body.comment, userId: req.user._id, urlImage:req.body.urlImage}}}, {new: true}).populate("comments.userId")
               if (newComment) {
+                console.log(newComment)
                   res.json({success: true, response: newComment.comments})
               } else {
                   throw new Error()

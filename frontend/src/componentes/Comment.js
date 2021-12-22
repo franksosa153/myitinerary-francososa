@@ -29,12 +29,10 @@ const Comment = (props) => {
         }
       })
     }
-    console.log(props.newComment.userId)
-    console.log(props.userId)
-    console.log(props._id)
-
+    const img=props.newComment.userId._id ?props.newComment.userId.urlImage:props.dataComment.urlImage
     const user = props.userId==props._id ||props.newComment.userId._id === props._id
-    console.log(props.newComment.userId)
+    
+    console.log(props.dataComment.urlImage)
     const comment = <div className="textArea">
                         <div>
                             {!modifyComment 
@@ -54,7 +52,7 @@ const Comment = (props) => {
     return (
         <>
             <div className="textArea"> 
-            <div className="profilePic" style={{backgroundImage:`url("${props.newComment.userId.urlImage}")` }}> </div>
+            <div className="profilePic" style={{backgroundImage:`url("${img}")` }}> </div>
             <div>
                 <h6>{props.newComment.userId.name}</h6>
                 {renderComment}  
