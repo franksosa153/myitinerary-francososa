@@ -32,7 +32,7 @@ const Comments = (props) => {
         })
         .catch(error =>console.log(error))
     }
-
+console.log(props.comments)
     const editComment = (commentId, comment, token) => {
         props.editComment(commentId, comment, token)
         .then((res)=> {
@@ -56,7 +56,7 @@ const Comments = (props) => {
                 <div className="comments">
                 
                     {
-                        allComments.map((comment)=><Comment key={comment._id} newComment={comment} delete={deleteComment} itineraryId={props.itineraryId} edit={editComment} updateComment={update}/>
+                        allComments.map((comment)=><Comment key={comment._id} userId={comment.userId} newComment={comment} delete={deleteComment} itineraryId={props.itineraryId} edit={editComment} updateComment={update}/>
                         )
                     }
                 </div>
@@ -77,6 +77,7 @@ const Comments = (props) => {
 const mapStateToProps = (state) => {
     return {
         token:state.authReducer.token,
+        _id:state.authReducer._id
     }   
 }
 

@@ -29,9 +29,12 @@ const Comment = (props) => {
         }
       })
     }
+    console.log(props.newComment.userId)
+    console.log(props.userId)
+    console.log(props._id)
 
-    const user = props.newComment.userId._id === props._id
-    console.log(props.newComment)
+    const user = props.userId==props._id ||props.newComment.userId._id === props._id
+    console.log(props.newComment.userId)
     const comment = <div className="textArea">
                         <div>
                             {!modifyComment 
