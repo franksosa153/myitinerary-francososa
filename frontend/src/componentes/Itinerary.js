@@ -64,7 +64,8 @@ const Itinerary = (props) => {
                       </div>
                       <div className="datos3">
                         <div className="contenedorLikes">
-                      <img className="heart" src={heart} onClick={likeItinerary }/>
+                          <div className="corazon">
+                      <img className="heart" src={heart} onClick={likeItinerary }/></div>
                         <p className="likes">{itinerariesLikes.length}</p>
                         </div>
                         <div className="hastag">

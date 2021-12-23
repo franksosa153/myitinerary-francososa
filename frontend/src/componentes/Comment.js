@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from "react"
 import {connect} from "react-redux"
 import Swal from 'sweetalert2'
-
+import Editing from '../assets/editing.png'
+import Delete from '../assets/delete.png'
 const Comment = (props) => {
     const [modifyComment, setModifyComment] = useState(false)
     const inputHandler = useRef()
@@ -43,8 +44,8 @@ const Comment = (props) => {
                             </>
                             }
                         </div>
-                        <img src="🖊" alt="pencil" onClick={()=>setModifyComment(!modifyComment)} />
-                        <img src="/assets/trash.svg" alt="trash" onClick={confirmDeletion}/>  
+                        <img className="pencil" src={Editing} alt="pencil" onClick={()=>setModifyComment(!modifyComment)} />
+                        <img className="pencil" src={Delete} alt="trash" onClick={confirmDeletion}/>  
                     </div>
 
     const renderComment = user ? comment : <p>{props.newComment.comment}</p> 
