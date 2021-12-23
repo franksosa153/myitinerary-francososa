@@ -5,7 +5,9 @@ const itinerarysControllers=require("../controllers/itinerarysController")
 const passport = require ('../config/passport')
 const validator = require('../config/validator')
 const authControllers = require('../controllers/userControllers');
+const activitiesControllers=require('../controllers/activitiesControllers')
 const { Route } = require("express");
+const{getActivitiesOfOneItinerary,addActivity }=activitiesControllers
 const {obtenerTodasLasCiudades, cargarUnaCiudad, obtenerUnaCiudad} = citiesControllers
 const {obtenerTodasLosItinerarios,  cargarUnItinerario, obtenerUnItinerario,borrarUnItinerario,modificarUnItinerario,likeDislikeItinerary,obtenerItinerariosCiudades,controlComment} = itinerarysControllers
 const { newUser, accederACuenta,tokenVerification} = authControllers
@@ -41,7 +43,10 @@ Router.route("/itinerary/like/:id")
 Router.route("/comments/:id")
 .put(passport.authenticate("jwt", {session: false}),controlComment)
 
+Router.route("/activities")
+.post(addActivity)
 
-
+Router.route("/activities/:itineraryId")
+.get(getActivitiesOfOneItinerary);
 
 module.exports = Router

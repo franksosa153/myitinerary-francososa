@@ -22,10 +22,11 @@ const City = (props) => {
         window.scrollTo(0,0)
         props.fechCity(id);
         props.fechItinerarios(id);
+        
 
     }, [])
     
-   
+    
 
     
 
@@ -36,22 +37,22 @@ const City = (props) => {
         <div className="contenedorCity">
           <div className="contenedorCartelCiudad">
             <img className="imagenEle" src={props.arrayCity.src} />
-            <h1 className="titulociudad">{props.arrayCity.name}</h1>
+            <h1  className="titulociudad">{props.arrayCity.name}</h1>
           </div>
         </div>
         
         <div className="contenedorItinerarios">
           {props.Itinerarios.length !== 0 ? 
-            props.Itinerarios.map((itineraries) => <Itinerary Itineraries={itineraries} key={itineraries.id}/>): <h1 className="sinItinerarios">
+            props.Itinerarios.map((itineraries) => <Itinerary Itineraries={itineraries} ItinerariesId={itineraries._id} key={itineraries.id}/>): <h1 className="sinItinerarios">
             there are no itineraries for this city
           </h1>
                
             
           }
-          <Volver/>
+         
           <div className="volverAciTy">
               
-
+ <Volver  />
           </div>
           
           
@@ -73,6 +74,7 @@ const mapStateToProps = (state) => {
   const mapDispatchToProps = {
     fechCity: citiesActions.traerCity,
     fechItinerarios: itinerariosActions.traerItinerarios,
+    
     
   };
   

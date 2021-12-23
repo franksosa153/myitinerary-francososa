@@ -22,7 +22,7 @@ const Comments = (props) => {
                 timer: 1500
               })
         }else{
-        props.addComment(props.itineraryId, textValue, props.token, props.urlImage,)
+        props.addComment(props.itineraryId, textValue, props.token, props.urlImage,props.name)
         .then((res)=> {
             
             setAllComments(res.response)   
@@ -44,8 +44,7 @@ const Comments = (props) => {
         })
         .catch(error =>console.log(error))
     }
-    const domparativa=props.itineraryId
-    const id=allComments.map((r)=>r.itineraryId==domparativa)
+    
 
 
 
@@ -95,7 +94,8 @@ const Comments = (props) => {
 const mapStateToProps = (state) => {
     return {
         token:state.authReducer.token,
-        urlImage:state.authReducer.urlImage
+        urlImage:state.authReducer.urlImage,
+        name:state.authReducer.name,
     }   
 }
 

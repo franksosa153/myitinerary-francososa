@@ -23,11 +23,11 @@ const itinerariosActions = {
             }
         }
     },
-    addComment: (itineraryId, comment, token,urlImage) => {
+    addComment: (itineraryId, comment, token,urlImage,name) => {
 
         return async () => {
             try {
-                let response = await axios.put(`http://localhost:4000/api/comments/${itineraryId}`, {comment,urlImage,itineraryId, type: "addComment"},
+                let response = await axios.put(`http://localhost:4000/api/comments/${itineraryId}`, {comment,urlImage,itineraryId,name, type: "addComment"},
                 {headers: {
                     Authorization: "Bearer "+token
                     }
@@ -91,6 +91,20 @@ const itinerariosActions = {
             }
         }    
     }, 
+    getActivitiesByItinerary: (itineraryId) => {
+        return async (dispatch, getState) => {
+            try {
+                let response = await axios.get(`http://localhost:4000/api/activities/${itineraryId}`)
+                let data = response.data.response
+                return data
+            } catch (error){
+                return {
+                    success: false, response: error
+                }
+            }
+        }
+    }
+
 }
 
 export default itinerariosActions
