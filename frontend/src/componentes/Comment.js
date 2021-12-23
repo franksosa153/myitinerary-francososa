@@ -43,7 +43,7 @@ const Comment = (props) => {
                             </>
                             }
                         </div>
-                        <img src="/assets/pencil.svg" alt="pencil" onClick={()=>setModifyComment(!modifyComment)} />
+                        <img src="🖊" alt="pencil" onClick={()=>setModifyComment(!modifyComment)} />
                         <img src="/assets/trash.svg" alt="trash" onClick={confirmDeletion}/>  
                     </div>
 

@@ -546,6 +546,7 @@ justify-content: space-around;
 .heart{
   width: 5vw;
   height: 5vh;
+  cursor: pointer;
 }
 .hastag{
   display:flex;
@@ -578,9 +579,9 @@ display: flex;
 }
 
 .imagenEle{
-  height: 30vh;
-  width: 70vw;
-  border-radius: 0  0  20vw 20vw ;
+  height: 42vh;
+  width: 100%;
+  
 }
 .relative{
   position: relative;
@@ -633,9 +634,9 @@ display: flex;
 }
 .contenedorCartelCiudad{
   background-color: black;
-  border-radius: 0  0  20vw 20vw ;
-  width: 70vw;
-  height: 90%;
+  
+  width: 100vw;
+  height: 50vh;
 }
 
 
@@ -841,6 +842,16 @@ display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+  }
+  .cardActivi{
+    margin-left: 5% !important;
+    height: 30vh;
+    width: 40vw !important;
+    margin-bottom: 5% !important;
+  }
+  .tituloActi{
+    color: white !important;
+    font-size: 3vw !important; 
   }
  
 }
