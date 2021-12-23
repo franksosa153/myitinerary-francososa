@@ -17,7 +17,7 @@ const Comments = (props) => {
             Swal.fire({
                 position: 'top-end',
                 icon: 'error',
-                title:"no podes dejar vacio un comentario",
+                title:"cannot send an empty comment",
                 showConfirmButton: true,
                 timer: 1500
               })

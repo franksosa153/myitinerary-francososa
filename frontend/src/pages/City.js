@@ -19,10 +19,13 @@ const City = (props) => {
     
 
     useEffect(() => {
+      
         window.scrollTo(0,0)
         props.fechCity(id);
         props.fechItinerarios(id);
-        
+        return ()=>{
+           
+         }
 
     }, [])
     

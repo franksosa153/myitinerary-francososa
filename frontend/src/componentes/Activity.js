@@ -4,9 +4,9 @@ const Activity = (props) => {
 
     return (
 
-        <Card className="cardActivi" style={{ width: '40%' }}>
-            <Card.Img variant="top" src={activitiesInfo.src} />
-            <Card.Body>
+        <Card className="cardActivi" style={{ width: '50%' }}>
+            <Card.Img className='imgActi' variant="top" src={activitiesInfo.src} />
+            <Card.Body className='contenedorTitulo'>
                 <Card.Title className='tituloActi'>{activitiesInfo.activity}</Card.Title>        
             </Card.Body>
         </Card>

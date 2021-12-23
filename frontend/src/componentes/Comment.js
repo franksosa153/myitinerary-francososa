@@ -48,6 +48,7 @@ const Comment = (props) => {
                     </div>
 
     const renderComment = user ? comment : <p>{props.newComment.comment}</p> 
+    console.log(props.newComment.comment)
     
     return (
         <>

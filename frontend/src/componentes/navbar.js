@@ -14,7 +14,7 @@ function Headers(props) {
   : <img className="userImg" src={require('../assets/user.png').default}/>
     let logo=require('../assets/logo.png')
     return (
-      <Navbar  collapseOnSelect expand="lg" className="navbar" variant="dark">     
+      <Navbar  collapseOnSelect expand="lg" className="navbar navbarStik" variant="dark">     
       <Container>
       <div className="navbar-izquierda">
          <div >

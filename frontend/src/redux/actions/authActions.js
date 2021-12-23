@@ -19,7 +19,16 @@ const authActions = {
                         timer: 1500
                       })
                 }else{
-                    
+                    console.error(user.data.response)
+                    const error = user.data.error
+                    if (user.data.error) {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'error',
+                            title: error,
+                            showConfirmButton: true,
+                            timer: 1500
+                        })}
                     
                     return { errores: user.data.errores };
                 }
