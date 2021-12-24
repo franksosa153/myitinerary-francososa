@@ -8,7 +8,7 @@ import Footer from "../componentes/footer";
 import Header from "../componentes/navbar";
 import Volver from "../componentes/volver";
 import Itinerary from '../componentes/Itinerary'
-
+import Loading from "../componentes/Loader";
 
 
 
@@ -29,7 +29,19 @@ const City = (props) => {
 
     }, [])
     
-    
+    if (props.arrayCity== null) {
+      return <>
+      <Header />
+      <div className="rellenoLoading"></div>
+      <div className="loading">
+      <div className="headerLoading">
+          <h3 className="cargando">Loading...</h3>
+          </div>
+        <Loading/>
+   
+    </div>
+    </>
+  }
 
     
 

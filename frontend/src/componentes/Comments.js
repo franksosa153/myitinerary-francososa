@@ -22,7 +22,7 @@ const Comments = (props) => {
                 timer: 1500
               })
         }else{
-        props.addComment(props.itineraryId, textValue, props.token, props.urlImage,props.name)
+        props.addComment(props.itineraryId, textValue, props.token, props.urlImage,props.name,props.user)
         .then((res)=> {
             
             setAllComments(res.response)   
@@ -96,6 +96,7 @@ const mapStateToProps = (state) => {
         token:state.authReducer.token,
         urlImage:state.authReducer.urlImage,
         name:state.authReducer.name,
+        user: state.authReducer._id
     }   
 }
 

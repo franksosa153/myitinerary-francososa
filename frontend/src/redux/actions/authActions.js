@@ -10,6 +10,7 @@ const authActions = {
                 const user = await axios.post('http://localhost:4000/api/auth/signUp',{...User})
                 if(user.data.success && !user.data.error){
                     localStorage.setItem('token',user.data.response.token)
+                    localStorage.setItem('_id',user.data.response._id)
                     dispatch({type:'usuario', payload:user.data.response})
                     Swal.fire({
                         position: 'top-end',
@@ -85,6 +86,7 @@ const authActions = {
               })
             dispatch({type: "LOG_OUT"})
             localStorage.removeItem("token")
+            localStorage.removeItem("_id")
         }
     },
 

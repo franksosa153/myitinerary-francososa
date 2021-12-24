@@ -14,7 +14,8 @@ const itinerarysSchema = new mongoose.Schema({
         userId: {type: mongoose.Types.ObjectId, ref: "persona"},
         urlImage: {type: String},
         itineraryId: {type: String},
-        name: {type: String}
+        name: {type: String},
+        user:{type: String}
     }],
 
 })
